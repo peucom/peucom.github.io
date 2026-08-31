@@ -579,179 +579,303 @@
     </footer>
 
 </div>
-
-
 <script>
+/*
+============================================================
+ PASSIVE EXPERIMENT UNIT
+ AUTOMATIC GOOGLE PLAY APP LOADER
+============================================================
 
-/* ============================================================
-   PASSIVE EXPERIMENT UNIT
-   APP REGISTRY
+ You ONLY provide Android package names:
 
-   ONLY EDIT THIS ARRAY.
+ const APP_PACKAGES = [
+     "com.itbrok.macropad",
+     "com.example.app"
+ ];
 
-   Add another Android package name like:
+ The script automatically:
 
-   "com.example.myapp"
+ 1. Builds the Google Play URL
+ 2. Fetches the public Play Store page
+ 3. Reads the app name
+ 4. Reads the app icon
+ 5. Creates the app card
 
-============================================================ */
+============================================================
+*/
 
 const APP_PACKAGES = [
     "com.itbrok.macropad"
 ];
 
 
-/* ============================================================
-   GOOGLE PLAY
-============================================================ */
+/*
+============================================================
+ CONFIGURATION
+============================================================
+*/
 
 const PLAY_STORE =
     "https://play.google.com/store/apps/details?id=";
 
+const PLAY_LOCALE =
+    "&hl=en&gl=US";
 
-/* ============================================================
-   APP METADATA
+const PROXY =
+    "https://r.jina.ai/";
 
-   We use Google's Play Store page as the source.
 
-   The package name is sent to a public metadata endpoint
-   which returns the application's title and icon.
+/*
+============================================================
+ HTML ESCAPER
+============================================================
+*/
 
-============================================================ */
+function escapeHTML(value) {
 
-async function getApp(packageName) {
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+/*
+============================================================
+ FALLBACK APP NAME
+============================================================
+*/
+
+function fallbackName(packageName) {
+
+    const lastPart =
+        packageName
+            .split(".")
+            .pop()
+            .replace(/[-_]/g, " ");
+
+    return lastPart
+        .replace(/\b\w/g, letter =>
+            letter.toUpperCase()
+        );
+}
+
+
+/*
+============================================================
+ EXTRACT META TAG
+============================================================
+*/
+
+function extractMeta(html, property) {
 
     /*
-     * Google's Play Store page is the canonical source.
-     *
-     * r.jina.ai provides a text-readable representation of
-     * public web pages and avoids needing a backend.
-     */
+     * Handles:
 
-    const playUrl =
-        PLAY_STORE + encodeURIComponent(packageName);
+       <meta property="og:title" content="Macropad">
 
-    const metadataUrl =
-        "https://r.jina.ai/" + playUrl;
+       and:
+
+       <meta content="Macropad" property="og:title">
+    */
+
+    const pattern1 =
+        new RegExp(
+            `<meta[^>]+property=["']${property}["'][^>]+content=["']([^"']+)["']`,
+            "i"
+        );
+
+    const pattern2 =
+        new RegExp(
+            `<meta[^>]+content=["']([^"']+)["'][^>]+property=["']${property}["']`,
+            "i"
+        );
+
+    const match =
+        html.match(pattern1) ||
+        html.match(pattern2);
+
+    return match
+        ? match[1]
+        : null;
+}
+
+
+/*
+============================================================
+ EXTRACT APP METADATA
+============================================================
+*/
+
+async function fetchApp(packageName) {
+
+    const playURL =
+        PLAY_STORE +
+        encodeURIComponent(packageName) +
+        PLAY_LOCALE;
+
+    const requestURL =
+        PROXY + playURL;
 
     try {
 
         const response =
-            await fetch(metadataUrl);
+            await fetch(requestURL, {
+                cache: "no-store"
+            });
 
         if (!response.ok) {
-            throw new Error("Metadata request failed");
+            throw new Error(
+                `HTTP ${response.status}`
+            );
         }
 
-        const text =
+        const html =
             await response.text();
 
+
         /*
-         * Extract the title.
-         *
-         * Typical Play Store title:
-         *
-         * Macropad - Apps on Google Play
+         * APP NAME
          */
 
         let name =
-            packageName.split(".").pop();
+            extractMeta(
+                html,
+                "og:title"
+            );
 
-        const titleMatch =
-            text.match(/^#\s+(.+?)\s+-\s+Apps on Google Play/im);
-
-        if (titleMatch) {
-            name = titleMatch[1].trim();
-        }
 
         /*
-         * Extract image URLs from the page.
+         * APP ICON
          */
 
-        let icon = null;
+        let icon =
+            extractMeta(
+                html,
+                "og:image"
+            );
 
-        const imageMatches =
-            [...text.matchAll(/https?:\/\/[^\s"'<>]+/g)];
 
-        for (const match of imageMatches) {
+        /*
+         * Sometimes og:title contains:
+         *
+         * "Macropad - Apps on Google Play"
+         */
 
-            const url = match[0]
-                .replace(/[),.;]+$/, "");
+        if (name) {
 
-            if (
-                url.includes("googleusercontent.com") ||
-                url.includes("ggpht.com")
-            ) {
-                icon = url;
-                break;
-            }
+            name =
+                name
+                    .replace(
+                        /\s*-\s*Apps on Google Play\s*$/i,
+                        ""
+                    )
+                    .trim();
+
         }
 
+
+        /*
+         * If metadata isn't available,
+         * try the normal title.
+         */
+
+        if (!name) {
+
+            const title =
+                html.match(
+                    /<title[^>]*>([\s\S]*?)<\/title>/i
+                );
+
+            if (title) {
+
+                name =
+                    title[1]
+                        .replace(
+                            /\s*-\s*Apps on Google Play\s*$/i,
+                            ""
+                        )
+                        .trim();
+
+            }
+
+        }
+
+
         return {
+
             packageName,
-            name,
+
+            name:
+                name ||
+                fallbackName(packageName),
+
             icon,
-            playUrl
+
+            playURL,
+
+            success:
+                Boolean(name || icon)
+
         };
 
     } catch (error) {
 
-        console.warn(
-            "Could not retrieve Play Store metadata:",
-            packageName,
+        console.error(
+            `Failed to fetch ${packageName}`,
             error
         );
 
         return {
+
             packageName,
-            name: packageName
-                .split(".")
-                .pop()
-                .replace(/[-_]/g, " ")
-                .replace(/\b\w/g, c => c.toUpperCase()),
+
+            name:
+                fallbackName(packageName),
+
             icon: null,
-            playUrl
+
+            playURL,
+
+            success: false
+
         };
+
     }
+
 }
 
 
-/* ============================================================
-   ESCAPE HTML
-============================================================ */
-
-function escapeHtml(value) {
-
-    return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-}
-
-
-/* ============================================================
-   CREATE APP CARD
-============================================================ */
+/*
+============================================================
+ CREATE APP CARD
+============================================================
+*/
 
 function createAppCard(app, index) {
 
-    const article =
+    const card =
         document.createElement("article");
 
-    article.className = "app";
+    card.className =
+        "app";
+
 
     /*
-     * If Google Play provides an icon,
-     * use it.
+     * Use the actual Google Play icon.
      *
-     * Otherwise fall back to icon.png.
+     * If Google doesn't return one,
+     * use your developer icon as fallback.
      */
 
     const icon =
-        app.icon || "icon.png";
+        app.icon ||
+        "icon.png";
 
-    article.innerHTML = `
+
+    card.innerHTML = `
 
         <div>
 
@@ -759,9 +883,10 @@ function createAppCard(app, index) {
 
                 <img
                     class="app-icon"
-                    src="${escapeHtml(icon)}"
-                    alt="${escapeHtml(app.name)}"
+                    src="${escapeHTML(icon)}"
+                    alt="${escapeHTML(app.name)}"
                     loading="lazy"
+                    onerror="this.onerror=null;this.src='icon.png';"
                 >
 
                 <span class="app-number">
@@ -770,21 +895,23 @@ function createAppCard(app, index) {
 
             </div>
 
+
             <h3 class="app-name">
-                ${escapeHtml(app.name)}
+                ${escapeHTML(app.name)}
             </h3>
 
         </div>
 
+
         <div class="app-bottom">
 
             <span class="package">
-                ${escapeHtml(app.packageName)}
+                ${escapeHTML(app.packageName)}
             </span>
 
             <a
                 class="play-link"
-                href="${escapeHtml(app.playUrl)}"
+                href="${escapeHTML(app.playURL)}"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -795,70 +922,81 @@ function createAppCard(app, index) {
 
     `;
 
-    return article;
+
+    return card;
+
 }
 
 
-/* ============================================================
-   LOAD APPLICATIONS
-============================================================ */
+/*
+============================================================
+ LOAD ALL APPS
+============================================================
+*/
 
 async function loadApps() {
 
     const container =
         document.getElementById("apps");
 
-    container.innerHTML = "";
 
-    if (!APP_PACKAGES.length) {
+    container.innerHTML = `
+        <div class="loading">
+            LOADING EXPERIMENTS...
+        </div>
+    `;
 
-        container.innerHTML = `
-            <div class="loading">
-                NO EXPERIMENTS YET.
-            </div>
-        `;
-
-        return;
-    }
 
     /*
-     * Fetch all applications.
+     * Fetch every package.
      */
 
     const apps =
         await Promise.all(
-            APP_PACKAGES.map(getApp)
+            APP_PACKAGES.map(
+                packageName =>
+                    fetchApp(packageName)
+            )
         );
+
 
     /*
-     * Render them.
+     * Clear loading state.
      */
 
-    apps.forEach((app, index) => {
+    container.innerHTML = "";
 
-        container.appendChild(
-            createAppCard(app, index)
-        );
 
-    });
+    /*
+     * Render cards.
+     */
+
+    apps.forEach(
+        (app, index) => {
+
+            container.appendChild(
+                createAppCard(
+                    app,
+                    index
+                )
+            );
+
+        }
+    );
+
 }
 
 
-/* ============================================================
-   YEAR
-============================================================ */
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-
-/* ============================================================
-   START
-============================================================ */
+/*
+============================================================
+ INITIALIZE
+============================================================
+*/
 
 loadApps();
 
 </script>
+
 
 </body>
 </html>
