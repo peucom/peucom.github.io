@@ -1,1663 +1,1600 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 
-    <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta charset="UTF-8">
 
-    <title>Passive Experiment Unit</title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="description"
-        content="Passive Experiment Unit — independent software experiments."
-    >
+<title>Passive Experiment Unit</title>
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="icon.png"
-    >
+<meta
+    name="description"
+    content="Passive Experiment Unit — independent software experiments."
+>
 
-
-    <style>
-
-        :root {
-            --yellow: #FFD900;
-            --red: #E60000;
-            --black: #111111;
-
-            --border: 2px solid var(--black);
-
-            --max-width: 1400px;
-        }
+<link
+    rel="icon"
+    type="image/png"
+    href="icon.png"
+>
 
 
-        * {
-            box-sizing: border-box;
+<style>
 
-            margin: 0;
-            padding: 0;
-        }
+    :root {
+        --yellow: #FFD900;
+        --red: #E60000;
+        --black: #111111;
 
+        --border: 2px solid var(--black);
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-            background: var(--yellow);
-
-            color: var(--black);
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            -webkit-font-smoothing: antialiased;
-        }
+        --max-width: 1400px;
+    }
 
 
-        a {
-            color: inherit;
-
-            text-decoration: none;
-        }
-
-
-        button {
-            font: inherit;
-        }
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
 
-        .site {
-            width: min(
-                100%,
-                var(--max-width)
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        background: var(--yellow);
+        color: var(--black);
+
+        font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
+
+        -webkit-font-smoothing: antialiased;
+    }
+
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+
+    button {
+        font: inherit;
+    }
+
+
+    .site {
+        width: min(100%, var(--max-width));
+        margin: auto;
+        padding: 0 32px;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    header {
+        height: 92px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        border-bottom: var(--border);
+    }
+
+
+    .brand {
+        cursor: pointer;
+    }
+
+
+    .brand img {
+        width: 52px;
+        height: 52px;
+
+        display: block;
+        object-fit: contain;
+    }
+
+
+    nav {
+        display: flex;
+        gap: 36px;
+    }
+
+
+    nav a {
+        font-size: 11px;
+        font-weight: 800;
+
+        text-transform: uppercase;
+        letter-spacing: .12em;
+
+        cursor: pointer;
+    }
+
+
+    nav a:hover {
+        color: var(--red);
+    }
+
+
+    /* =====================================================
+       HOME
+    ===================================================== */
+
+    #home-page {
+        display: block;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+        min-height: 760px;
+
+        padding: 42px 0;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        border-bottom: var(--border);
+    }
+
+
+    .hero-meta {
+        display: flex;
+        justify-content: space-between;
+
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: .14em;
+    }
+
+
+    .hero-content {
+        max-width: 1000px;
+    }
+
+
+    .experimental-mark {
+        width: 100px;
+        height: 14px;
+
+        display: flex;
+        gap: 7px;
+
+        margin-bottom: 44px;
+    }
+
+
+    .experimental-mark span {
+        height: 14px;
+        width: 14px;
+
+        background: var(--red);
+    }
+
+
+    .experimental-mark span:nth-child(2) {
+        width: 58px;
+    }
+
+
+    .hero h1 {
+        color: var(--red);
+
+        font-size:
+            clamp(
+                65px,
+                10vw,
+                150px
             );
 
-            margin: auto;
+        line-height: .83;
+        letter-spacing: -.075em;
 
-            padding: 0 32px;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+
+
+    .hero-description {
+        max-width: 560px;
+
+        margin-top: 48px;
+
+        font-size: 18px;
+        line-height: 1.5;
+
+        font-weight: 500;
+    }
+
+
+    .hero-footer {
+        display: flex;
+        justify-content: space-between;
+
+        border-top:
+            1px solid
+            rgba(0,0,0,.35);
+
+        padding-top: 13px;
+
+        font-size: 10px;
+        font-weight: 800;
+
+        letter-spacing: .15em;
+    }
+
+
+    /* =====================================================
+       SECTIONS
+    ===================================================== */
+
+    section {
+        border-bottom: var(--border);
+    }
+
+
+    .experiments,
+    .about {
+        padding: 120px 0;
+    }
+
+
+    .section-heading {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: flex-start;
+
+        margin-bottom: 64px;
+    }
+
+
+    .eyebrow {
+        display: block;
+
+        color: var(--red);
+
+        font-size: 10px;
+        font-weight: 800;
+
+        letter-spacing: .16em;
+
+        margin-bottom: 18px;
+    }
+
+
+    .section-heading h2 {
+        font-size:
+            clamp(
+                44px,
+                6vw,
+                78px
+            );
+
+        line-height: .95;
+        letter-spacing: -.06em;
+    }
+
+
+    .section-number {
+        color: var(--red);
+
+        font-size: 11px;
+        font-weight: 800;
+    }
+
+
+    /* =====================================================
+       APP GRID
+    ===================================================== */
+
+    .apps {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        border-top: var(--border);
+        border-left: var(--border);
+    }
+
+
+    .app {
+        min-height: 320px;
+
+        padding: 32px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        border-right: var(--border);
+        border-bottom: var(--border);
+
+        cursor: pointer;
+
+        outline: none;
+
+        transition:
+            background .2s ease,
+            color .2s ease;
+    }
+
+
+    .app:hover {
+        background: var(--black);
+        color: var(--yellow);
+    }
+
+
+    .app:focus-visible {
+        outline:
+            3px solid
+            var(--red);
+
+        outline-offset: -3px;
+    }
+
+
+    .app-top {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+
+    .app-icon {
+        width: 88px;
+        height: 88px;
+
+        border-radius: 20px;
+
+        object-fit: cover;
+
+        background: var(--black);
+    }
+
+
+    .app-number {
+        font-size: 10px;
+        font-weight: 800;
+
+        opacity: .5;
+    }
+
+
+    .app-name {
+        margin-top: 50px;
+
+        font-size: 36px;
+        line-height: 1;
+
+        letter-spacing: -.045em;
+
+        font-weight: 800;
+    }
+
+
+    .app-bottom {
+        margin-top: 42px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 20px;
+    }
+
+
+    .package {
+        max-width: 65%;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        font-family: monospace;
+
+        font-size: 10px;
+
+        opacity: .5;
+    }
+
+
+    .play-link {
+        font-size: 10px;
+        font-weight: 800;
+
+        letter-spacing: .1em;
+
+        text-transform: uppercase;
+    }
+
+
+    .play-link:hover {
+        color: var(--red);
+    }
+
+
+    /* =====================================================
+       LOADING
+    ===================================================== */
+
+    .loading {
+        grid-column: 1 / -1;
+
+        min-height: 220px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-right: var(--border);
+        border-bottom: var(--border);
+
+        font-size: 10px;
+        font-weight: 800;
+
+        letter-spacing: .15em;
+    }
+
+
+    /* =====================================================
+       ABOUT
+    ===================================================== */
+
+    .about-grid {
+        display: grid;
+
+        grid-template-columns:
+            1.4fr 1fr;
+
+        gap: 100px;
+
+        max-width: 1100px;
+    }
+
+
+    .about-large {
+        font-size:
+            clamp(
+                34px,
+                4vw,
+                60px
+            );
+
+        line-height: .98;
+        letter-spacing: -.055em;
+
+        font-weight: 700;
+    }
+
+
+    .about-text {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+
+    .about-text p + p {
+        margin-top: 25px;
+    }
+
+
+    /* =====================================================
+       APP LANDING PAGE
+    ===================================================== */
+
+    #app-page {
+        display: none;
+    }
+
+
+    .app-page {
+        min-height:
+            calc(100vh - 92px);
+
+        padding:
+            70px 0
+            120px;
+    }
+
+
+    .app-page-top {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 90px;
+    }
+
+
+    .back-button {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        padding: 0;
+
+        border: 0;
+
+        background: transparent;
+
+        color: var(--black);
+
+        font-size: 11px;
+        font-weight: 800;
+
+        letter-spacing: .12em;
+
+        text-transform: uppercase;
+
+        cursor: pointer;
+    }
+
+
+    .back-button:hover {
+        color: var(--red);
+    }
+
+
+    .app-page-index {
+        color: var(--red);
+
+        font-size: 10px;
+        font-weight: 800;
+
+        letter-spacing: .14em;
+    }
+
+
+    /* =====================================================
+       APP HERO
+    ===================================================== */
+
+    .app-hero {
+        display: grid;
+
+        grid-template-columns:
+            180px 1fr;
+
+        gap: 60px;
+
+        align-items: start;
+
+        padding-bottom: 100px;
+
+        border-bottom: var(--border);
+    }
+
+
+    .app-page-icon {
+        width: 180px;
+        height: 180px;
+
+        object-fit: cover;
+
+        border-radius: 38px;
+
+        display: block;
+    }
+
+
+    .app-page-title {
+        color: var(--red);
+
+        font-size:
+            clamp(
+                60px,
+                9vw,
+                130px
+            );
+
+        line-height: .85;
+        letter-spacing: -.075em;
+
+        font-weight: 900;
+
+        text-transform: uppercase;
+    }
+
+
+    .app-page-tagline {
+        max-width: 700px;
+
+        margin-top: 38px;
+
+        font-size:
+            clamp(
+                20px,
+                2.2vw,
+                30px
+            );
+
+        line-height: 1.25;
+
+        font-weight: 500;
+
+        letter-spacing: -.025em;
+    }
+
+
+    .app-page-actions {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        margin-top: 42px;
+
+        flex-wrap: wrap;
+    }
+
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
+
+    .primary-button,
+    .secondary-button {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-height: 48px;
+
+        padding: 0 24px;
+
+        font-size: 10px;
+        font-weight: 800;
+
+        letter-spacing: .12em;
+
+        text-transform: uppercase;
+
+        cursor: pointer;
+
+        transition: .2s ease;
+    }
+
+
+    .primary-button {
+        background: var(--black);
+        color: var(--yellow);
+
+        border:
+            2px solid
+            var(--black);
+    }
+
+
+    .primary-button:hover {
+        background: var(--red);
+
+        border-color: var(--red);
+
+        color: white;
+    }
+
+
+    .secondary-button {
+        background: transparent;
+        color: var(--black);
+
+        border:
+            2px solid
+            var(--black);
+    }
+
+
+    .secondary-button:hover {
+        background: var(--black);
+
+        color: var(--yellow);
+    }
+
+
+    /* =====================================================
+       APP CONTENT
+    ===================================================== */
+
+    .app-page-content {
+        display: grid;
+
+        grid-template-columns:
+            1.2fr .8fr;
+
+        gap: 100px;
+
+        padding-top: 100px;
+    }
+
+
+    .app-page-description {
+        max-width: 760px;
+
+        font-size: 21px;
+        line-height: 1.55;
+
+        font-weight: 500;
+    }
+
+
+    .feature-list {
+        border-top: var(--border);
+    }
+
+
+    .feature {
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 30px;
+
+        padding: 20px 0;
+
+        border-bottom:
+            1px solid
+            rgba(0,0,0,.35);
+    }
+
+
+    .feature-number {
+        color: var(--red);
+
+        font-family: monospace;
+
+        font-size: 10px;
+        font-weight: 800;
+    }
+
+
+    .feature-name {
+        flex: 1;
+
+        font-size: 13px;
+        font-weight: 700;
+
+        text-transform: uppercase;
+
+        letter-spacing: .04em;
+    }
+
+
+    .app-package-large {
+        margin-top: 70px;
+
+        font-family: monospace;
+
+        font-size: 10px;
+
+        opacity: .45;
+    }
+
+
+    /* =====================================================
+       DESKTOP COMPANION
+    ===================================================== */
+
+    .server-section {
+        margin-top: 100px;
+
+        padding-top: 55px;
+
+        border-top: var(--border);
+    }
+
+
+    .server-grid {
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 80px;
+
+        align-items: start;
+    }
+
+
+    .server-title {
+        font-size:
+            clamp(
+                34px,
+                4vw,
+                58px
+            );
+
+        line-height: .95;
+        letter-spacing: -.055em;
+
+        font-weight: 800;
+    }
+
+
+    .server-description {
+        margin-top: 24px;
+
+        max-width: 600px;
+
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+
+    .server-download {
+        border-top: var(--border);
+        border-bottom: var(--border);
+
+        padding: 25px 0;
+    }
+
+
+    .server-file {
+        display: block;
+
+        font-family: monospace;
+
+        font-size: 11px;
+        font-weight: 700;
+
+        word-break: break-all;
+
+        margin-bottom: 20px;
+    }
+
+
+    .server-meta {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 20px;
+
+        font-size: 9px;
+        font-weight: 800;
+
+        letter-spacing: .1em;
+
+        text-transform: uppercase;
+
+        opacity: .55;
+
+        margin-bottom: 22px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+        min-height: 110px;
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr 1fr;
+
+        align-items: center;
+
+        font-size: 9px;
+        font-weight: 800;
+
+        letter-spacing: .13em;
+    }
+
+
+    footer div:nth-child(2) {
+        text-align: center;
+    }
+
+
+    footer div:last-child {
+        text-align: right;
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 700px) {
+
+        .site {
+            padding: 0 18px;
         }
 
-
-        /* =====================================================
-           HEADER
-        ===================================================== */
 
         header {
-            height: 92px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            border-bottom: var(--border);
-        }
-
-
-        .brand {
-            cursor: pointer;
+            height: 76px;
         }
 
 
         .brand img {
-            width: 52px;
-            height: 52px;
-
-            display: block;
-
-            object-fit: contain;
+            width: 44px;
+            height: 44px;
         }
 
 
         nav {
-            display: flex;
-
-            gap: 36px;
+            gap: 18px;
         }
 
 
         nav a {
-            font-size: 11px;
-
-            font-weight: 800;
-
-            text-transform: uppercase;
-
-            letter-spacing: .12em;
-
-            cursor: pointer;
+            font-size: 9px;
         }
 
-
-        nav a:hover {
-            color: var(--red);
-        }
-
-
-        /* =====================================================
-           HOME
-        ===================================================== */
-
-        #home-page {
-            display: block;
-        }
-
-
-        /* =====================================================
-           HERO
-        ===================================================== */
 
         .hero {
-            min-height: 760px;
-
-            padding: 42px 0;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: space-between;
-
-            border-bottom: var(--border);
+            min-height: 650px;
         }
 
 
         .hero-meta {
-            display: flex;
-
-            justify-content: space-between;
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: .14em;
-        }
-
-
-        .hero-content {
-            max-width: 1000px;
-        }
-
-
-        .experimental-mark {
-            width: 100px;
-            height: 14px;
-
-            display: flex;
-
-            gap: 7px;
-
-            margin-bottom: 44px;
-        }
-
-
-        .experimental-mark span {
-            height: 14px;
-            width: 14px;
-
-            background: var(--red);
-        }
-
-
-        .experimental-mark span:nth-child(2) {
-            width: 58px;
+            font-size: 8px;
         }
 
 
         .hero h1 {
-            color: var(--red);
-
-            font-size:
-                clamp(
-                    65px,
-                    10vw,
-                    150px
-                );
-
-            line-height: .83;
-
-            letter-spacing: -.075em;
-
-            font-weight: 900;
-
-            text-transform: uppercase;
+            font-size: 18vw;
         }
 
 
         .hero-description {
-            max-width: 560px;
-
-            margin-top: 48px;
-
-            font-size: 18px;
-
-            line-height: 1.5;
-
-            font-weight: 500;
+            font-size: 16px;
         }
 
 
         .hero-footer {
-            display: flex;
-
-            justify-content: space-between;
-
-            border-top:
-                1px solid rgba(0,0,0,.35);
-
-            padding-top: 13px;
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: .15em;
-        }
-
-
-        /* =====================================================
-           SECTIONS
-        ===================================================== */
-
-        section {
-            border-bottom: var(--border);
+            font-size: 8px;
         }
 
 
         .experiments,
         .about {
-            padding: 120px 0;
+            padding: 80px 0;
         }
 
-
-        .section-heading {
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: flex-start;
-
-            margin-bottom: 64px;
-        }
-
-
-        .eyebrow {
-            display: block;
-
-            color: var(--red);
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: .16em;
-
-            margin-bottom: 18px;
-        }
-
-
-        .section-heading h2 {
-            font-size:
-                clamp(
-                    44px,
-                    6vw,
-                    78px
-                );
-
-            line-height: .95;
-
-            letter-spacing: -.06em;
-        }
-
-
-        .section-number {
-            color: var(--red);
-
-            font-size: 11px;
-
-            font-weight: 800;
-        }
-
-
-        /* =====================================================
-           APP GRID
-        ===================================================== */
 
         .apps {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            border-top: var(--border);
-
-            border-left: var(--border);
+            grid-template-columns: 1fr;
         }
 
 
         .app {
-            min-height: 320px;
-
-            padding: 32px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: space-between;
-
-            border-right: var(--border);
-
-            border-bottom: var(--border);
-
-            cursor: pointer;
-
-            outline: none;
-
-            transition:
-                background .2s ease,
-                color .2s ease;
+            min-height: 280px;
         }
 
-
-        .app:hover {
-            background: var(--black);
-
-            color: var(--yellow);
-        }
-
-
-        .app:focus-visible {
-            outline:
-                3px solid var(--red);
-
-            outline-offset: -3px;
-        }
-
-
-        .app-top {
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: flex-start;
-        }
-
-
-        .app-icon {
-            width: 88px;
-            height: 88px;
-
-            border-radius: 20px;
-
-            object-fit: cover;
-
-            background: var(--black);
-        }
-
-
-        .app-number {
-            font-size: 10px;
-
-            font-weight: 800;
-
-            opacity: .5;
-        }
-
-
-        .app-name {
-            margin-top: 50px;
-
-            font-size: 36px;
-
-            line-height: 1;
-
-            letter-spacing: -.045em;
-
-            font-weight: 800;
-        }
-
-
-        .app-bottom {
-            margin-top: 42px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 20px;
-        }
-
-
-        .package {
-            max-width: 65%;
-
-            overflow: hidden;
-
-            text-overflow: ellipsis;
-
-            white-space: nowrap;
-
-            font-family: monospace;
-
-            font-size: 10px;
-
-            opacity: .5;
-        }
-
-
-        .play-link {
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: .1em;
-
-            text-transform: uppercase;
-        }
-
-
-        .play-link:hover {
-            color: var(--red);
-        }
-
-
-        /* =====================================================
-           LOADING
-        ===================================================== */
-
-        .loading {
-            grid-column: 1 / -1;
-
-            min-height: 220px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-right: var(--border);
-
-            border-bottom: var(--border);
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: .15em;
-        }
-
-
-        /* =====================================================
-           ABOUT
-        ===================================================== */
 
         .about-grid {
-            display: grid;
-
-            grid-template-columns:
-                1.4fr 1fr;
-
-            gap: 100px;
-
-            max-width: 1100px;
+            grid-template-columns: 1fr;
+            gap: 45px;
         }
 
 
-        .about-large {
-            font-size:
-                clamp(
-                    34px,
-                    4vw,
-                    60px
-                );
-
-            line-height: .98;
-
-            letter-spacing: -.055em;
-
-            font-weight: 700;
-        }
-
-
-        .about-text {
-            font-size: 16px;
-
-            line-height: 1.7;
-        }
-
-
-        .about-text p + p {
-            margin-top: 25px;
-        }
-
-
-        /* =====================================================
-           APP LANDING PAGE
-        ===================================================== */
-
-        #app-page {
-            display: none;
-        }
-
+        /* APP PAGE */
 
         .app-page {
-            min-height:
-                calc(100vh - 92px);
-
             padding:
-                70px 0
-                120px;
+                40px 0
+                80px;
         }
 
 
         .app-page-top {
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            margin-bottom: 90px;
+            margin-bottom: 55px;
         }
 
-
-        .back-button {
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            padding: 0;
-
-            border: 0;
-
-            background: transparent;
-
-            color: var(--black);
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-            letter-spacing: .12em;
-
-            text-transform: uppercase;
-
-            cursor: pointer;
-        }
-
-
-        .back-button:hover {
-            color: var(--red);
-        }
-
-
-        .app-page-index {
-            color: var(--red);
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: .14em;
-        }
-
-
-        /* =====================================================
-           APP HERO
-        ===================================================== */
 
         .app-hero {
-            display: grid;
+            grid-template-columns: 1fr;
 
-            grid-template-columns:
-                180px 1fr;
+            gap: 35px;
 
-            gap: 60px;
-
-            align-items: start;
-
-            padding-bottom: 100px;
-
-            border-bottom: var(--border);
+            padding-bottom: 70px;
         }
 
 
         .app-page-icon {
-            width: 180px;
-            height: 180px;
+            width: 110px;
+            height: 110px;
 
-            object-fit: cover;
-
-            border-radius: 38px;
-
-            display: block;
+            border-radius: 24px;
         }
 
 
         .app-page-title {
-            color: var(--red);
-
-            font-size:
-                clamp(
-                    60px,
-                    9vw,
-                    130px
-                );
-
-            line-height: .85;
-
-            letter-spacing: -.075em;
-
-            font-weight: 900;
-
-            text-transform: uppercase;
+            font-size: 19vw;
         }
 
 
         .app-page-tagline {
-            max-width: 700px;
-
-            margin-top: 38px;
-
-            font-size:
-                clamp(
-                    20px,
-                    2.2vw,
-                    30px
-                );
-
-            line-height: 1.25;
-
-            font-weight: 500;
-
-            letter-spacing: -.025em;
+            font-size: 19px;
         }
 
 
         .app-page-actions {
-            display: flex;
-
-            align-items: center;
-
-            gap: 14px;
-
-            margin-top: 42px;
-
-            flex-wrap: wrap;
+            margin-top: 30px;
         }
 
-
-        /* =====================================================
-           BUTTONS
-        ===================================================== */
-
-        .primary-button {
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            min-height: 48px;
-
-            padding: 0 24px;
-
-            background: var(--black);
-
-            color: var(--yellow);
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: .12em;
-
-            text-transform: uppercase;
-
-            border: 2px solid var(--black);
-
-            transition: .2s ease;
-        }
-
-
-        .primary-button:hover {
-            background: var(--red);
-
-            border-color: var(--red);
-
-            color: white;
-        }
-
-
-        .secondary-button {
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            min-height: 48px;
-
-            padding: 0 24px;
-
-            background: transparent;
-
-            color: var(--black);
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: .12em;
-
-            text-transform: uppercase;
-
-            border: 2px solid var(--black);
-
-            transition: .2s ease;
-        }
-
-
-        .secondary-button:hover {
-            background: var(--black);
-
-            color: var(--yellow);
-        }
-
-
-        /* =====================================================
-           APP CONTENT
-        ===================================================== */
 
         .app-page-content {
-            display: grid;
+            grid-template-columns: 1fr;
 
-            grid-template-columns:
-                1.2fr .8fr;
+            gap: 60px;
 
-            gap: 100px;
-
-            padding-top: 100px;
+            padding-top: 70px;
         }
 
 
         .app-page-description {
-            max-width: 760px;
-
-            font-size: 21px;
-
-            line-height: 1.55;
-
-            font-weight: 500;
+            font-size: 18px;
         }
 
-
-        .feature-list {
-            border-top: var(--border);
-        }
-
-
-        .feature {
-            display: flex;
-
-            justify-content: space-between;
-
-            gap: 30px;
-
-            padding: 20px 0;
-
-            border-bottom:
-                1px solid
-                rgba(0,0,0,.35);
-        }
-
-
-        .feature-number {
-            color: var(--red);
-
-            font-family: monospace;
-
-            font-size: 10px;
-
-            font-weight: 800;
-        }
-
-
-        .feature-name {
-            flex: 1;
-
-            font-size: 13px;
-
-            font-weight: 700;
-
-            text-transform: uppercase;
-
-            letter-spacing: .04em;
-        }
-
-
-        .app-package-large {
-            margin-top: 70px;
-
-            font-family: monospace;
-
-            font-size: 10px;
-
-            opacity: .45;
-        }
-
-
-        /* =====================================================
-           WINDOWS SERVER
-        ===================================================== */
 
         .server-section {
-            margin-top: 100px;
-
-            padding-top: 55px;
-
-            border-top: var(--border);
+            margin-top: 70px;
         }
 
 
         .server-grid {
-            display: grid;
+            grid-template-columns: 1fr;
 
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 80px;
-
-            align-items: start;
+            gap: 50px;
         }
 
 
         .server-title {
-            font-size:
-                clamp(
-                    34px,
-                    4vw,
-                    58px
-                );
-
-            line-height: .95;
-
-            letter-spacing: -.055em;
-
-            font-weight: 800;
+            font-size: 38px;
         }
 
-
-        .server-description {
-            margin-top: 24px;
-
-            max-width: 600px;
-
-            font-size: 16px;
-
-            line-height: 1.6;
-        }
-
-
-        .server-download {
-            border-top: var(--border);
-
-            border-bottom: var(--border);
-
-            padding: 25px 0;
-        }
-
-
-        .server-file {
-            display: block;
-
-            font-family: monospace;
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-            word-break: break-all;
-
-            margin-bottom: 20px;
-        }
-
-
-        .server-meta {
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 20px;
-
-            font-size: 9px;
-
-            font-weight: 800;
-
-            letter-spacing: .1em;
-
-            text-transform: uppercase;
-
-            opacity: .55;
-
-            margin-bottom: 22px;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
 
         footer {
-            min-height: 110px;
+            grid-template-columns: 1fr;
 
-            display: grid;
+            gap: 14px;
 
-            grid-template-columns:
-                1fr 1fr 1fr;
-
-            align-items: center;
-
-            font-size: 9px;
-
-            font-weight: 800;
-
-            letter-spacing: .13em;
+            padding: 30px 0;
         }
 
 
-        footer div:nth-child(2) {
-            text-align: center;
-        }
-
-
+        footer div,
+        footer div:nth-child(2),
         footer div:last-child {
-            text-align: right;
+            text-align: left;
         }
 
+    }
 
-        /* =====================================================
-           MOBILE
-        ===================================================== */
+</style>
 
-        @media (max-width: 700px) {
-
-            .site {
-                padding: 0 18px;
-            }
-
-
-            header {
-                height: 76px;
-            }
-
-
-            .brand img {
-                width: 44px;
-                height: 44px;
-            }
-
-
-            nav {
-                gap: 18px;
-            }
-
-
-            nav a {
-                font-size: 9px;
-            }
-
-
-            .hero {
-                min-height: 650px;
-            }
-
-
-            .hero-meta {
-                font-size: 8px;
-            }
-
-
-            .hero h1 {
-                font-size: 18vw;
-            }
-
-
-            .hero-description {
-                font-size: 16px;
-            }
-
-
-            .hero-footer {
-                font-size: 8px;
-            }
-
-
-            .experiments,
-            .about {
-                padding: 80px 0;
-            }
-
-
-            .apps {
-                grid-template-columns: 1fr;
-            }
-
-
-            .app {
-                min-height: 280px;
-            }
-
-
-            .about-grid {
-                grid-template-columns: 1fr;
-
-                gap: 45px;
-            }
-
-
-            /* APP PAGE */
-
-            .app-page {
-                padding:
-                    40px 0
-                    80px;
-            }
-
-
-            .app-page-top {
-                margin-bottom: 55px;
-            }
-
-
-            .app-hero {
-                grid-template-columns: 1fr;
-
-                gap: 35px;
-
-                padding-bottom: 70px;
-            }
-
-
-            .app-page-icon {
-                width: 110px;
-                height: 110px;
-
-                border-radius: 24px;
-            }
-
-
-            .app-page-title {
-                font-size: 19vw;
-            }
-
-
-            .app-page-tagline {
-                font-size: 19px;
-            }
-
-
-            .app-page-actions {
-                margin-top: 30px;
-            }
-
-
-            .app-page-content {
-                grid-template-columns: 1fr;
-
-                gap: 60px;
-
-                padding-top: 70px;
-            }
-
-
-            .app-page-description {
-                font-size: 18px;
-            }
-
-
-            .server-section {
-                margin-top: 70px;
-            }
-
-
-            .server-grid {
-                grid-template-columns: 1fr;
-
-                gap: 50px;
-            }
-
-
-            .server-title {
-                font-size: 38px;
-            }
-
-
-            footer {
-                grid-template-columns: 1fr;
-
-                gap: 14px;
-
-                padding: 30px 0;
-            }
-
-
-            footer div,
-            footer div:nth-child(2),
-            footer div:last-child {
-                text-align: left;
-            }
-
-        }
-
-    </style>
 
 </head>
 
-
 <body>
-
 
 <div class="site">
 
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
+<!-- =====================================================
+     HEADER
+====================================================== -->
 
-    <header>
+<header>
 
-        <a
-            href="#"
-            class="brand"
-            aria-label="Passive Experiment Unit home"
+    <a
+        href="#"
+        class="brand"
+        aria-label="Passive Experiment Unit home"
+    >
+
+        <img
+            src="icon-nobg.png"
+            alt="Passive Experiment Unit"
         >
 
-            <img
-                src="icon-nobg.png"
-                alt="Passive Experiment Unit"
-            >
+    </a>
 
+
+    <nav>
+
+        <a href="#experiments">
+            Experiments
         </a>
 
+        <a href="#about">
+            About
+        </a>
 
-        <nav>
+    </nav>
 
-            <a href="#experiments">
-                Experiments
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-        </nav>
-
-    </header>
+</header>
 
 
-    <main>
+<main>
 
 
-        <!-- =================================================
-             HOME PAGE
-        ================================================== -->
+    <!-- =================================================
+         HOME PAGE
+    ================================================== -->
 
-        <div id="home-page">
-
-
-            <!-- HERO -->
-
-            <section class="hero">
+    <div id="home-page">
 
 
-                <div class="hero-meta">
+        <!-- HERO -->
 
-                    <span>
-                        PEU / 001
-                    </span>
+        <section class="hero">
 
-                    <span>
-                        INDEPENDENT SOFTWARE UNIT
-                    </span>
+
+            <div class="hero-meta">
+
+                <span>
+                    PEU / 001
+                </span>
+
+                <span>
+                    INDEPENDENT SOFTWARE UNIT
+                </span>
+
+            </div>
+
+
+            <div class="hero-content">
+
+
+                <div class="experimental-mark">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
 
                 </div>
 
 
-                <div class="hero-content">
+                <h1>
+                    Passive<br>
+                    Experiment<br>
+                    Unit
+                </h1>
 
 
-                    <div class="experimental-mark">
+                <p class="hero-description">
 
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    Independent software experiments exploring
+                    useful ideas, unusual interfaces, and things
+                    worth making.
 
-                    </div>
+                </p>
 
-
-                    <h1>
-                        Passive<br>
-                        Experiment<br>
-                        Unit
-                    </h1>
+            </div>
 
 
-                    <p class="hero-description">
+            <div class="hero-footer">
 
-                        Independent software experiments exploring
-                        useful ideas, unusual interfaces, and things
-                        worth making.
+                <span>OBSERVE</span>
+
+                <span>BUILD</span>
+
+                <span>TEST</span>
+
+                <span>REPEAT</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             EXPERIMENTS
+        ================================================== -->
+
+        <section
+            id="experiments"
+            class="experiments"
+        >
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        CURRENT EXPERIMENTS
+                    </span>
+
+
+                    <h2>
+                        Things we've made.
+                    </h2>
+
+                </div>
+
+
+                <span class="section-number">
+                    01
+                </span>
+
+            </div>
+
+
+            <div
+                id="apps"
+                class="apps"
+            >
+
+                <div class="loading">
+                    LOADING EXPERIMENTS...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ABOUT
+        ================================================== -->
+
+        <section
+            id="about"
+            class="about"
+        >
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        THE UNIT
+                    </span>
+
+
+                    <h2>
+                        Why Passive?
+                    </h2>
+
+                </div>
+
+
+                <span class="section-number">
+                    02
+                </span>
+
+            </div>
+
+
+            <div class="about-grid">
+
+
+                <p class="about-large">
+
+                    We make software without pretending every
+                    project needs to become a company.
+
+                </p>
+
+
+                <div class="about-text">
+
+
+                    <p>
+
+                        Passive Experiment Unit is an independent
+                        software unit for experiments, utilities,
+                        interfaces, and ideas that are interesting
+                        enough to build.
+
+                    </p>
+
+
+                    <p>
+
+                        Some experiments become products.
+                        Some remain experiments.
+                        Both are useful.
 
                     </p>
 
                 </div>
 
+            </div>
 
-                <div class="hero-footer">
+        </section>
 
-                    <span>OBSERVE</span>
-
-                    <span>BUILD</span>
-
-                    <span>TEST</span>
-
-                    <span>REPEAT</span>
-
-                </div>
-
-            </section>
+    </div>
 
 
-            <!-- =================================================
-                 EXPERIMENTS
-            ================================================== -->
+    <!-- =================================================
+         APP LANDING PAGE
+    ================================================== -->
 
-            <section
-                id="experiments"
-                class="experiments"
-            >
+    <div id="app-page">
 
 
-                <div class="section-heading">
+        <section class="app-page">
 
 
-                    <div>
+            <!-- APP PAGE HEADER -->
 
-                        <span class="eyebrow">
-                            CURRENT EXPERIMENTS
-                        </span>
+            <div class="app-page-top">
 
 
-                        <h2>
-                            Things we've made.
-                        </h2>
-
-                    </div>
-
-
-                    <span class="section-number">
-                        01
-                    </span>
-
-                </div>
-
-
-                <div
-                    id="apps"
-                    class="apps"
+                <button
+                    id="back-button"
+                    class="back-button"
+                    type="button"
                 >
 
-                    <div class="loading">
-                        LOADING EXPERIMENTS...
-                    </div>
+                    ← Back to experiments
 
-                </div>
+                </button>
 
-            </section>
 
+                <span
+                    id="app-page-index"
+                    class="app-page-index"
+                >
+                    EXP. 01
+                </span>
 
-            <!-- =================================================
-                 ABOUT
-            ================================================== -->
+            </div>
 
-            <section
-                id="about"
-                class="about"
-            >
 
+            <!-- APP HERO -->
 
-                <div class="section-heading">
+            <div class="app-hero">
 
 
-                    <div>
-
-                        <span class="eyebrow">
-                            THE UNIT
-                        </span>
-
-
-                        <h2>
-                            Why Passive?
-                        </h2>
-
-                    </div>
-
-
-                    <span class="section-number">
-                        02
-                    </span>
-
-                </div>
-
-
-                <div class="about-grid">
-
-
-                    <p class="about-large">
-
-                        We make software without pretending every
-                        project needs to become a company.
-
-                    </p>
-
-
-                    <div class="about-text">
-
-
-                        <p>
-
-                            Passive Experiment Unit is an independent
-                            software unit for experiments, utilities,
-                            interfaces, and ideas that are interesting
-                            enough to build.
-
-                        </p>
-
-
-                        <p>
-
-                            Some experiments become products.
-                            Some remain experiments.
-                            Both are useful.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-        </div>
-
-
-        <!-- =================================================
-             APP LANDING PAGE
-        ================================================== -->
-
-        <div id="app-page">
-
-
-            <section class="app-page">
-
-
-                <!-- APP PAGE HEADER -->
-
-                <div class="app-page-top">
-
-
-                    <button
-                        id="back-button"
-                        class="back-button"
-                        type="button"
-                    >
-
-                        ← Back to experiments
-
-                    </button>
-
-
-                    <span
-                        id="app-page-index"
-                        class="app-page-index"
-                    >
-                        EXP. 01
-                    </span>
-
-                </div>
-
-
-                <!-- APP HERO -->
-
-                <div class="app-hero">
-
-
-                    <img
-                        id="app-page-icon"
-                        class="app-page-icon"
-                        src=""
-                        alt=""
-                    >
-
-
-                    <div>
-
-
-                        <h1
-                            id="app-page-title"
-                            class="app-page-title"
-                        >
-                        </h1>
-
-
-                        <p
-                            id="app-page-tagline"
-                            class="app-page-tagline"
-                        >
-                        </p>
-
-
-                        <div class="app-page-actions">
-
-
-                            <a
-                                id="app-play-link"
-                                class="primary-button"
-                                href="#"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-
-                                Google Play →
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- APP CONTENT -->
-
-                <div class="app-page-content">
-
-
-                    <div>
-
-
-                        <p
-                            id="app-page-description"
-                            class="app-page-description"
-                        >
-                        </p>
-
-
-                        <div
-                            id="app-page-package"
-                            class="app-package-large"
-                        >
-                        </div>
-
-                    </div>
-
-
-                    <div>
-
-
-                        <span class="eyebrow">
-                            FEATURES
-                        </span>
-
-
-                        <div
-                            id="app-features"
-                            class="feature-list"
-                        >
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- =================================================
-                     WINDOWS SERVER
-                ================================================== -->
-
-                <div
-                    id="server-section"
-                    class="server-section"
+                <img
+                    id="app-page-icon"
+                    class="app-page-icon"
+                    src=""
+                    alt=""
                 >
 
 
-                    <div class="server-grid">
+                <div>
 
 
-                        <div>
+                    <h1
+                        id="app-page-title"
+                        class="app-page-title"
+                    ></h1>
 
 
-                            <span class="eyebrow">
-                                WINDOWS COMPONENT
-                            </span>
+                    <p
+                        id="app-page-tagline"
+                        class="app-page-tagline"
+                    ></p>
 
 
-                            <h2 class="server-title">
-                                Windows server required.
-                            </h2>
+                    <div class="app-page-actions">
 
 
-                            <p
-                                id="server-description"
-                                class="server-description"
-                            >
-                            </p>
+                        <a
+                            id="app-play-link"
+                            class="primary-button"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
 
-                        </div>
+                            Google Play →
 
-
-                        <div class="server-download">
-
-
-                            <span class="eyebrow">
-                                WINDOWS INSTALLER
-                            </span>
+                        </a>
 
 
-                            <span
-                                id="server-file"
-                                class="server-file"
-                            >
-                            </span>
+                        <!--
+                            SECONDARY CTA
 
+                            Its text and target are populated
+                            entirely from the app definition.
+                        -->
 
-                            <div class="server-meta">
-
-                                <span>
-                                    Windows
-                                </span>
-
-                                <span>
-                                    Server
-                                </span>
-
-                            </div>
-
-
-                            <a
-                                id="server-download-link"
-                                class="primary-button"
-                                href="#"
-                            >
-
-                                Download Windows Server →
-
-                            </a>
-
-                        </div>
+                        <button
+                            id="app-secondary-cta"
+                            class="secondary-button"
+                            type="button"
+                        ></button>
 
                     </div>
 
                 </div>
 
-            </section>
-
-        </div>
+            </div>
 
 
-    </main>
+            <!-- APP CONTENT -->
+
+            <div class="app-page-content">
 
 
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer>
+                <div>
 
 
-        <div>
-            PASSIVE EXPERIMENT UNIT
-        </div>
+                    <p
+                        id="app-page-description"
+                        class="app-page-description"
+                    ></p>
 
 
-        <div>
+                    <div
+                        id="app-page-package"
+                        class="app-package-large"
+                    ></div>
 
-            © <span id="year"></span>
-
-        </div>
-
-
-        <div>
-            INDEPENDENT SOFTWARE
-        </div>
+                </div>
 
 
-    </footer>
+                <div>
+
+
+                    <span class="eyebrow">
+                        FEATURES
+                    </span>
+
+
+                    <div
+                        id="app-features"
+                        class="feature-list"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 DESKTOP COMPANION
+            ================================================== -->
+
+            <div
+                id="server-section"
+                class="server-section"
+            >
+
+
+                <div class="server-grid">
+
+
+                    <div>
+
+
+                        <span
+                            id="server-eyebrow"
+                            class="eyebrow"
+                        >
+                            DESKTOP COMPANION
+                        </span>
+
+
+                        <h2
+                            id="server-title"
+                            class="server-title"
+                        >
+                            Desktop companion required.
+                        </h2>
+
+
+                        <p
+                            id="server-description"
+                            class="server-description"
+                        ></p>
+
+                    </div>
+
+
+                    <div class="server-download">
+
+
+                        <span class="eyebrow">
+                            WINDOWS INSTALLER
+                        </span>
+
+
+                        <span
+                            id="server-file"
+                            class="server-file"
+                        ></span>
+
+
+                        <div class="server-meta">
+
+                            <span>
+                                Windows
+                            </span>
+
+                            <span>
+                                Desktop Companion
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            id="server-download-link"
+                            class="primary-button"
+                            href="#"
+                        >
+
+                            Download →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+
+    <div>
+        PASSIVE EXPERIMENT UNIT
+    </div>
+
+
+    <div>
+        © <span id="year"></span>
+    </div>
+
+
+    <div>
+        INDEPENDENT SOFTWARE
+    </div>
+
+
+</footer>
 
 
 </div>
-
 
 <script>
 
@@ -1669,13 +1606,7 @@
 
  Everything related to an application is defined here.
 
- The website itself remains ONE index.html file.
-
- Clicking an app creates:
-
-     index.html#app/macropad
-
- No second HTML page is required.
+ Add another app by adding another object to APPS.
 
 ================================================================
 */
@@ -1686,10 +1617,11 @@ const APPS = [
     {
 
         /*
-         * Internal URL identifier.
+         * URL identifier.
          */
 
-        slug: "macropad",
+        slug:
+            "macropad",
 
 
         /*
@@ -1709,7 +1641,9 @@ const APPS = [
 
 
         /*
-         * Manually supplied app icon.
+         * App icon.
+
+         * Manually supplied.
          */
 
         icon:
@@ -1722,9 +1656,8 @@ const APPS = [
 
         landing: {
 
-
             /*
-             * Large introductory sentence.
+             * Introductory sentence.
              */
 
             tagline:
@@ -1740,7 +1673,7 @@ const APPS = [
 
 
             /*
-             * Feature list.
+             * Features.
              */
 
             features: [
@@ -1757,7 +1690,29 @@ const APPS = [
 
 
             /*
-             * Windows component.
+             * Secondary CTA.
+
+             * This controls the button shown next to
+             * Google Play.
+
+             * The button name is defined HERE,
+             * not hardcoded in the HTML.
+
+             */
+
+            secondaryCTA: {
+
+                label:
+                    "Get Desktop Companion →",
+
+                target:
+                    "server-section"
+
+            },
+
+
+            /*
+             * Desktop component.
              */
 
             server: {
@@ -1765,8 +1720,11 @@ const APPS = [
                 required:
                     true,
 
+                title:
+                    "Desktop companion required.",
+
                 description:
-                    "Macropad requires the Macropad Server to be installed and running on your Windows PC. Install the server, connect your phone to the same network, and use Macropad to control your computer.",
+                    "Macropad requires the Desktop Companion to be installed and running on your Windows PC. Install it, connect your phone to the same network, and use Macropad to control your computer.",
 
                 installer:
                     "Macropad-Server-Setup-1.0.3.exe"
@@ -1786,6 +1744,7 @@ const APPS = [
 ================================================================
 */
 
+
 const PLAY_STORE =
     "https://play.google.com/store/apps/details?id=";
 
@@ -1795,6 +1754,7 @@ const PLAY_STORE =
  DOM ELEMENTS
 ================================================================
 */
+
 
 const homePage =
     document.getElementById(
@@ -1868,9 +1828,27 @@ const backButton =
     );
 
 
+const secondaryCTA =
+    document.getElementById(
+        "app-secondary-cta"
+    );
+
+
 const serverSection =
     document.getElementById(
         "server-section"
+    );
+
+
+const serverEyebrow =
+    document.getElementById(
+        "server-eyebrow"
+    );
+
+
+const serverTitle =
+    document.getElementById(
+        "server-title"
     );
 
 
@@ -1897,6 +1875,7 @@ const serverDownloadLink =
  HTML ESCAPER
 ================================================================
 */
+
 
 function escapeHTML(value) {
 
@@ -1936,6 +1915,7 @@ function escapeHTML(value) {
 ================================================================
 */
 
+
 function getPlayStoreURL(
     packageName
 ) {
@@ -1956,6 +1936,7 @@ function getPlayStoreURL(
 ================================================================
 */
 
+
 function getAppBySlug(
     slug
 ) {
@@ -1973,6 +1954,7 @@ function getAppBySlug(
  CREATE APP CARD
 ================================================================
 */
+
 
 function createAppCard(
     app,
@@ -2085,16 +2067,15 @@ function createAppCard(
 
 
     /*
-     * Open application landing page.
+     * Open landing page.
+
+     * Google Play remains clickable
+     * without opening the landing page.
      */
 
     card.addEventListener(
         "click",
         function(event) {
-
-            /*
-             * Don't intercept Google Play.
-             */
 
             if (
                 event.target.closest(
@@ -2150,6 +2131,7 @@ function createAppCard(
  LOAD APP CARDS
 ================================================================
 */
+
 
 function loadApps() {
 
@@ -2221,6 +2203,7 @@ function loadApps() {
 ================================================================
 */
 
+
 function populateAppPage(
     app
 ) {
@@ -2237,6 +2220,7 @@ function populateAppPage(
 
     appPageIcon.src =
         app.icon;
+
 
     appPageIcon.alt =
         `${app.name} icon`;
@@ -2360,7 +2344,60 @@ function populateAppPage(
 
 
     /*
-     * Windows server.
+     * =========================================================
+     * SECONDARY CTA
+     * =========================================================
+
+     * The button is configured entirely from:
+
+         landing.secondaryCTA
+
+     * No button label is hardcoded here.
+     */
+
+
+    const cta =
+        app.landing?.secondaryCTA;
+
+
+    if (
+        cta &&
+        cta.label &&
+        cta.target
+    ) {
+
+        secondaryCTA.style.display =
+            "inline-flex";
+
+
+        secondaryCTA.textContent =
+            cta.label;
+
+
+        secondaryCTA.dataset.target =
+            cta.target;
+
+    }
+
+    else {
+
+        secondaryCTA.style.display =
+            "none";
+
+
+        secondaryCTA.textContent =
+            "";
+
+
+        delete secondaryCTA.dataset.target;
+
+    }
+
+
+    /*
+     * =========================================================
+     * DESKTOP COMPANION
+     * =========================================================
      */
 
     const server =
@@ -2374,6 +2411,11 @@ function populateAppPage(
 
         serverSection.style.display =
             "block";
+
+
+        serverTitle.textContent =
+            server.title ||
+            "Desktop companion required.";
 
 
         serverDescription.textContent =
@@ -2390,11 +2432,6 @@ function populateAppPage(
             server.installer ||
             "#";
 
-
-        /*
-         * Browser will download the
-         * EXE instead of navigating.
-         */
 
         serverDownloadLink.setAttribute(
             "download",
@@ -2419,6 +2456,7 @@ function populateAppPage(
 ================================================================
 */
 
+
 function openApp(
     slug
 ) {
@@ -2439,7 +2477,7 @@ function openApp(
 
 
     /*
-     * Populate content.
+     * Populate page.
      */
 
     populateAppPage(
@@ -2448,13 +2486,12 @@ function openApp(
 
 
     /*
-     * Update URL.
-
-     * Still the SAME index.html.
+     * Same index.html.
 
      * Example:
-     *
-     * index.html#app/macropad
+
+         index.html#app/macropad
+
      */
 
     window.location.hash =
@@ -2462,7 +2499,7 @@ function openApp(
 
 
     /*
-     * Change visible page.
+     * Switch visible page.
      */
 
     homePage.style.display =
@@ -2499,6 +2536,7 @@ function openApp(
 ================================================================
 */
 
+
 function showHome() {
 
     homePage.style.display =
@@ -2516,8 +2554,8 @@ function showHome() {
     /*
      * Remove app hash.
 
-     * replaceState prevents an
-     * unnecessary history entry.
+     * replaceState prevents a
+     * new browser history entry.
      */
 
     if (
@@ -2550,6 +2588,7 @@ function showHome() {
  ROUTER
 ================================================================
 */
+
 
 function handleRoute() {
 
@@ -2616,9 +2655,75 @@ function handleRoute() {
 
 /*
 ================================================================
+ SECONDARY CTA
+================================================================
+
+ This intentionally DOES NOT modify the URL hash.
+
+ Previously:
+
+     href="#server-section"
+
+ caused:
+
+     hashchange
+         ↓
+     handleRoute()
+         ↓
+     showHome()
+
+ Now the button simply scrolls
+ to the configured section.
+
+================================================================
+*/
+
+
+secondaryCTA.addEventListener(
+    "click",
+    function() {
+
+        const targetID =
+            this.dataset.target;
+
+
+        if (!targetID) {
+            return;
+        }
+
+
+        const target =
+            document.getElementById(
+                targetID
+            );
+
+
+        if (!target) {
+
+            console.warn(
+                `CTA target "${targetID}" was not found.`
+            );
+
+            return;
+
+        }
+
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+);
+
+
+/*
+================================================================
  BACK BUTTON
 ================================================================
 */
+
 
 backButton.addEventListener(
     "click",
@@ -2635,6 +2740,7 @@ backButton.addEventListener(
  LOGO
 ================================================================
 */
+
 
 document
     .querySelector(
@@ -2658,6 +2764,7 @@ document
 ================================================================
 */
 
+
 document
     .querySelectorAll(
         "nav a"
@@ -2677,8 +2784,8 @@ document
 
                     /*
                      * When viewing an app,
-                     * return to the home page
-                     * before scrolling.
+                     * return to home before
+                     * scrolling.
                      */
 
                     if (
@@ -2737,6 +2844,7 @@ document
 ================================================================
 */
 
+
 window.addEventListener(
     "hashchange",
     handleRoute
@@ -2748,6 +2856,7 @@ window.addEventListener(
  CURRENT YEAR
 ================================================================
 */
+
 
 document.getElementById(
     "year"
@@ -2761,12 +2870,12 @@ document.getElementById(
 ================================================================
 */
 
+
 loadApps();
 
 handleRoute();
 
 </script>
-
 
 </body>
 </html>
