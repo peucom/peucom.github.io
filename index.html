@@ -579,50 +579,57 @@
     </footer>
 
 </div>
+
 <script>
 /*
 ============================================================
  PASSIVE EXPERIMENT UNIT
- AUTOMATIC GOOGLE PLAY APP LOADER
+ APP REGISTRY
 ============================================================
 
- You ONLY provide Android package names:
+ Add your apps here.
 
- const APP_PACKAGES = [
-     "com.itbrok.macropad",
-     "com.example.app"
+ Required:
+ - package
+ - name
+ - icon
+
+ Example:
+
+ const APPS = [
+     {
+         package: "com.itbrok.macropad",
+         name: "Macropad",
+         icon: "apps/macropad.png"
+     },
+
+     {
+         package: "com.example.secondapp",
+         name: "Second App",
+         icon: "apps/second-app.png"
+     }
  ];
-
- The script automatically:
-
- 1. Builds the Google Play URL
- 2. Fetches the public Play Store page
- 3. Reads the app name
- 4. Reads the app icon
- 5. Creates the app card
 
 ============================================================
 */
 
-const APP_PACKAGES = [
-    "com.itbrok.macropad"
+const APPS = [
+    {
+        package: "com.itbrok.macropad",
+        name: "Macropad",
+        icon: "apps/macropad.png"
+    }
 ];
 
 
 /*
 ============================================================
- CONFIGURATION
+ GOOGLE PLAY
 ============================================================
 */
 
 const PLAY_STORE =
     "https://play.google.com/store/apps/details?id=";
-
-const PLAY_LOCALE =
-    "&hl=en&gl=US";
-
-const PROXY =
-    "https://r.jina.ai/";
 
 
 /*
@@ -639,211 +646,22 @@ function escapeHTML(value) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+
 }
 
 
 /*
 ============================================================
- FALLBACK APP NAME
+ CREATE GOOGLE PLAY URL
 ============================================================
 */
 
-function fallbackName(packageName) {
+function getPlayStoreURL(packageName) {
 
-    const lastPart =
-        packageName
-            .split(".")
-            .pop()
-            .replace(/[-_]/g, " ");
-
-    return lastPart
-        .replace(/\b\w/g, letter =>
-            letter.toUpperCase()
-        );
-}
-
-
-/*
-============================================================
- EXTRACT META TAG
-============================================================
-*/
-
-function extractMeta(html, property) {
-
-    /*
-     * Handles:
-
-       <meta property="og:title" content="Macropad">
-
-       and:
-
-       <meta content="Macropad" property="og:title">
-    */
-
-    const pattern1 =
-        new RegExp(
-            `<meta[^>]+property=["']${property}["'][^>]+content=["']([^"']+)["']`,
-            "i"
-        );
-
-    const pattern2 =
-        new RegExp(
-            `<meta[^>]+content=["']([^"']+)["'][^>]+property=["']${property}["']`,
-            "i"
-        );
-
-    const match =
-        html.match(pattern1) ||
-        html.match(pattern2);
-
-    return match
-        ? match[1]
-        : null;
-}
-
-
-/*
-============================================================
- EXTRACT APP METADATA
-============================================================
-*/
-
-async function fetchApp(packageName) {
-
-    const playURL =
+    return (
         PLAY_STORE +
-        encodeURIComponent(packageName) +
-        PLAY_LOCALE;
-
-    const requestURL =
-        PROXY + playURL;
-
-    try {
-
-        const response =
-            await fetch(requestURL, {
-                cache: "no-store"
-            });
-
-        if (!response.ok) {
-            throw new Error(
-                `HTTP ${response.status}`
-            );
-        }
-
-        const html =
-            await response.text();
-
-
-        /*
-         * APP NAME
-         */
-
-        let name =
-            extractMeta(
-                html,
-                "og:title"
-            );
-
-
-        /*
-         * APP ICON
-         */
-
-        let icon =
-            extractMeta(
-                html,
-                "og:image"
-            );
-
-
-        /*
-         * Sometimes og:title contains:
-         *
-         * "Macropad - Apps on Google Play"
-         */
-
-        if (name) {
-
-            name =
-                name
-                    .replace(
-                        /\s*-\s*Apps on Google Play\s*$/i,
-                        ""
-                    )
-                    .trim();
-
-        }
-
-
-        /*
-         * If metadata isn't available,
-         * try the normal title.
-         */
-
-        if (!name) {
-
-            const title =
-                html.match(
-                    /<title[^>]*>([\s\S]*?)<\/title>/i
-                );
-
-            if (title) {
-
-                name =
-                    title[1]
-                        .replace(
-                            /\s*-\s*Apps on Google Play\s*$/i,
-                            ""
-                        )
-                        .trim();
-
-            }
-
-        }
-
-
-        return {
-
-            packageName,
-
-            name:
-                name ||
-                fallbackName(packageName),
-
-            icon,
-
-            playURL,
-
-            success:
-                Boolean(name || icon)
-
-        };
-
-    } catch (error) {
-
-        console.error(
-            `Failed to fetch ${packageName}`,
-            error
-        );
-
-        return {
-
-            packageName,
-
-            name:
-                fallbackName(packageName),
-
-            icon: null,
-
-            playURL,
-
-            success: false
-
-        };
-
-    }
+        encodeURIComponent(packageName)
+    );
 
 }
 
@@ -859,20 +677,11 @@ function createAppCard(app, index) {
     const card =
         document.createElement("article");
 
-    card.className =
-        "app";
+    card.className = "app";
 
 
-    /*
-     * Use the actual Google Play icon.
-     *
-     * If Google doesn't return one,
-     * use your developer icon as fallback.
-     */
-
-    const icon =
-        app.icon ||
-        "icon.png";
+    const playURL =
+        getPlayStoreURL(app.package);
 
 
     card.innerHTML = `
@@ -883,10 +692,13 @@ function createAppCard(app, index) {
 
                 <img
                     class="app-icon"
-                    src="${escapeHTML(icon)}"
-                    alt="${escapeHTML(app.name)}"
+                    src="${escapeHTML(app.icon)}"
+                    alt="${escapeHTML(app.name)} icon"
                     loading="lazy"
-                    onerror="this.onerror=null;this.src='icon.png';"
+                    onerror="
+                        this.onerror = null;
+                        this.src = 'icon.png';
+                    "
                 >
 
                 <span class="app-number">
@@ -906,12 +718,13 @@ function createAppCard(app, index) {
         <div class="app-bottom">
 
             <span class="package">
-                ${escapeHTML(app.packageName)}
+                ${escapeHTML(app.package)}
             </span>
+
 
             <a
                 class="play-link"
-                href="${escapeHTML(app.playURL)}"
+                href="${escapeHTML(playURL)}"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -930,34 +743,25 @@ function createAppCard(app, index) {
 
 /*
 ============================================================
- LOAD ALL APPS
+ LOAD APPS
 ============================================================
 */
 
-async function loadApps() {
+function loadApps() {
 
     const container =
         document.getElementById("apps");
 
 
-    container.innerHTML = `
-        <div class="loading">
-            LOADING EXPERIMENTS...
-        </div>
-    `;
+    if (!container) {
 
-
-    /*
-     * Fetch every package.
-     */
-
-    const apps =
-        await Promise.all(
-            APP_PACKAGES.map(
-                packageName =>
-                    fetchApp(packageName)
-            )
+        console.error(
+            "Passive Experiment Unit: #apps element not found."
         );
+
+        return;
+
+    }
 
 
     /*
@@ -968,11 +772,48 @@ async function loadApps() {
 
 
     /*
-     * Render cards.
+     * No apps.
      */
 
-    apps.forEach(
+    if (!Array.isArray(APPS) || APPS.length === 0) {
+
+        container.innerHTML = `
+            <div class="loading">
+                NO EXPERIMENTS YET.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    /*
+     * Render every app.
+     */
+
+    APPS.forEach(
         (app, index) => {
+
+            /*
+             * Basic validation.
+             */
+
+            if (
+                !app.package ||
+                !app.name ||
+                !app.icon
+            ) {
+
+                console.warn(
+                    "Invalid app configuration:",
+                    app
+                );
+
+                return;
+
+            }
+
 
             container.appendChild(
                 createAppCard(
@@ -989,14 +830,33 @@ async function loadApps() {
 
 /*
 ============================================================
+ CURRENT YEAR
+============================================================
+*/
+
+const year =
+    document.getElementById("year");
+
+if (year) {
+
+    year.textContent =
+        new Date().getFullYear();
+
+}
+
+
+/*
+============================================================
  INITIALIZE
 ============================================================
 */
 
-loadApps();
+document.addEventListener(
+    "DOMContentLoaded",
+    loadApps
+);
 
 </script>
-
 
 </body>
 </html>
