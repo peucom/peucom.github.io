@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Passive Experiment Unit</title>
 
@@ -11,7 +16,12 @@
         content="Passive Experiment Unit — independent software experiments."
     >
 
-    <link rel="icon" type="image/png" href="icon.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="icon.png"
+    >
+
 
     <style>
 
@@ -19,13 +29,16 @@
             --yellow: #FFD900;
             --red: #E60000;
             --black: #111111;
+
             --border: 2px solid var(--black);
+
             --max-width: 1400px;
         }
 
 
         * {
             box-sizing: border-box;
+
             margin: 0;
             padding: 0;
         }
@@ -38,6 +51,7 @@
 
         body {
             background: var(--yellow);
+
             color: var(--black);
 
             font-family:
@@ -51,6 +65,7 @@
 
         a {
             color: inherit;
+
             text-decoration: none;
         }
 
@@ -61,8 +76,13 @@
 
 
         .site {
-            width: min(100%, var(--max-width));
+            width: min(
+                100%,
+                var(--max-width)
+            );
+
             margin: auto;
+
             padding: 0 32px;
         }
 
@@ -75,7 +95,9 @@
             height: 92px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             border-bottom: var(--border);
@@ -88,7 +110,8 @@
 
 
         .brand img {
-            width: 125px;
+            width: 52px;
+            height: 52px;
 
             display: block;
 
@@ -98,15 +121,18 @@
 
         nav {
             display: flex;
+
             gap: 36px;
         }
 
 
         nav a {
             font-size: 11px;
+
             font-weight: 800;
 
             text-transform: uppercase;
+
             letter-spacing: .12em;
 
             cursor: pointer;
@@ -119,7 +145,7 @@
 
 
         /* =====================================================
-           MAIN PAGE
+           HOME
         ===================================================== */
 
         #home-page {
@@ -137,7 +163,9 @@
             padding: 42px 0;
 
             display: flex;
+
             flex-direction: column;
+
             justify-content: space-between;
 
             border-bottom: var(--border);
@@ -146,9 +174,11 @@
 
         .hero-meta {
             display: flex;
+
             justify-content: space-between;
 
             font-size: 10px;
+
             font-weight: 800;
 
             letter-spacing: .14em;
@@ -165,6 +195,7 @@
             height: 14px;
 
             display: flex;
+
             gap: 7px;
 
             margin-bottom: 44px;
@@ -188,7 +219,11 @@
             color: var(--red);
 
             font-size:
-                clamp(65px, 10vw, 150px);
+                clamp(
+                    65px,
+                    10vw,
+                    150px
+                );
 
             line-height: .83;
 
@@ -206,6 +241,7 @@
             margin-top: 48px;
 
             font-size: 18px;
+
             line-height: 1.5;
 
             font-weight: 500;
@@ -214,6 +250,7 @@
 
         .hero-footer {
             display: flex;
+
             justify-content: space-between;
 
             border-top:
@@ -222,6 +259,7 @@
             padding-top: 13px;
 
             font-size: 10px;
+
             font-weight: 800;
 
             letter-spacing: .15em;
@@ -245,7 +283,9 @@
 
         .section-heading {
             display: flex;
+
             justify-content: space-between;
+
             align-items: flex-start;
 
             margin-bottom: 64px;
@@ -258,6 +298,7 @@
             color: var(--red);
 
             font-size: 10px;
+
             font-weight: 800;
 
             letter-spacing: .16em;
@@ -268,7 +309,11 @@
 
         .section-heading h2 {
             font-size:
-                clamp(44px, 6vw, 78px);
+                clamp(
+                    44px,
+                    6vw,
+                    78px
+                );
 
             line-height: .95;
 
@@ -280,12 +325,13 @@
             color: var(--red);
 
             font-size: 11px;
+
             font-weight: 800;
         }
 
 
         /* =====================================================
-           APPS
+           APP GRID
         ===================================================== */
 
         .apps {
@@ -295,6 +341,7 @@
                 repeat(2, 1fr);
 
             border-top: var(--border);
+
             border-left: var(--border);
         }
 
@@ -305,30 +352,36 @@
             padding: 32px;
 
             display: flex;
+
             flex-direction: column;
+
             justify-content: space-between;
 
             border-right: var(--border);
+
             border-bottom: var(--border);
 
             cursor: pointer;
 
+            outline: none;
+
             transition:
                 background .2s ease,
                 color .2s ease;
-
-            outline: none;
         }
 
 
         .app:hover {
             background: var(--black);
+
             color: var(--yellow);
         }
 
 
         .app:focus-visible {
-            outline: 3px solid var(--red);
+            outline:
+                3px solid var(--red);
+
             outline-offset: -3px;
         }
 
@@ -337,6 +390,7 @@
             display: flex;
 
             justify-content: space-between;
+
             align-items: flex-start;
         }
 
@@ -355,6 +409,7 @@
 
         .app-number {
             font-size: 10px;
+
             font-weight: 800;
 
             opacity: .5;
@@ -365,6 +420,7 @@
             margin-top: 50px;
 
             font-size: 36px;
+
             line-height: 1;
 
             letter-spacing: -.045em;
@@ -377,7 +433,9 @@
             margin-top: 42px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 20px;
@@ -427,10 +485,13 @@
             min-height: 220px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             border-right: var(--border);
+
             border-bottom: var(--border);
 
             font-size: 10px;
@@ -459,7 +520,11 @@
 
         .about-large {
             font-size:
-                clamp(34px, 4vw, 60px);
+                clamp(
+                    34px,
+                    4vw,
+                    60px
+                );
 
             line-height: .98;
 
@@ -471,6 +536,7 @@
 
         .about-text {
             font-size: 16px;
+
             line-height: 1.7;
         }
 
@@ -490,9 +556,12 @@
 
 
         .app-page {
-            min-height: calc(100vh - 92px);
+            min-height:
+                calc(100vh - 92px);
 
-            padding: 70px 0 120px;
+            padding:
+                70px 0
+                120px;
         }
 
 
@@ -500,6 +569,7 @@
             display: flex;
 
             align-items: center;
+
             justify-content: space-between;
 
             margin-bottom: 90px;
@@ -549,6 +619,10 @@
         }
 
 
+        /* =====================================================
+           APP HERO
+        ===================================================== */
+
         .app-hero {
             display: grid;
 
@@ -581,7 +655,11 @@
             color: var(--red);
 
             font-size:
-                clamp(60px, 9vw, 130px);
+                clamp(
+                    60px,
+                    9vw,
+                    130px
+                );
 
             line-height: .85;
 
@@ -599,7 +677,11 @@
             margin-top: 38px;
 
             font-size:
-                clamp(20px, 2.2vw, 30px);
+                clamp(
+                    20px,
+                    2.2vw,
+                    30px
+                );
 
             line-height: 1.25;
 
@@ -614,16 +696,23 @@
 
             align-items: center;
 
-            gap: 24px;
+            gap: 14px;
 
             margin-top: 42px;
+
+            flex-wrap: wrap;
         }
 
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
 
         .primary-button {
             display: inline-flex;
 
             align-items: center;
+
             justify-content: center;
 
             min-height: 48px;
@@ -656,6 +745,46 @@
             color: white;
         }
 
+
+        .secondary-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 48px;
+
+            padding: 0 24px;
+
+            background: transparent;
+
+            color: var(--black);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: .12em;
+
+            text-transform: uppercase;
+
+            border: 2px solid var(--black);
+
+            transition: .2s ease;
+        }
+
+
+        .secondary-button:hover {
+            background: var(--black);
+
+            color: var(--yellow);
+        }
+
+
+        /* =====================================================
+           APP CONTENT
+        ===================================================== */
 
         .app-page-content {
             display: grid;
@@ -694,7 +823,9 @@
 
             padding: 20px 0;
 
-            border-bottom: 1px solid rgba(0,0,0,.35);
+            border-bottom:
+                1px solid
+                rgba(0,0,0,.35);
         }
 
 
@@ -730,6 +861,105 @@
             font-size: 10px;
 
             opacity: .45;
+        }
+
+
+        /* =====================================================
+           WINDOWS SERVER
+        ===================================================== */
+
+        .server-section {
+            margin-top: 100px;
+
+            padding-top: 55px;
+
+            border-top: var(--border);
+        }
+
+
+        .server-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 80px;
+
+            align-items: start;
+        }
+
+
+        .server-title {
+            font-size:
+                clamp(
+                    34px,
+                    4vw,
+                    58px
+                );
+
+            line-height: .95;
+
+            letter-spacing: -.055em;
+
+            font-weight: 800;
+        }
+
+
+        .server-description {
+            margin-top: 24px;
+
+            max-width: 600px;
+
+            font-size: 16px;
+
+            line-height: 1.6;
+        }
+
+
+        .server-download {
+            border-top: var(--border);
+
+            border-bottom: var(--border);
+
+            padding: 25px 0;
+        }
+
+
+        .server-file {
+            display: block;
+
+            font-family: monospace;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            word-break: break-all;
+
+            margin-bottom: 20px;
+        }
+
+
+        .server-meta {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: .1em;
+
+            text-transform: uppercase;
+
+            opacity: .55;
+
+            margin-bottom: 22px;
         }
 
 
@@ -848,7 +1078,9 @@
             /* APP PAGE */
 
             .app-page {
-                padding: 40px 0 80px;
+                padding:
+                    40px 0
+                    80px;
             }
 
 
@@ -903,6 +1135,23 @@
             }
 
 
+            .server-section {
+                margin-top: 70px;
+            }
+
+
+            .server-grid {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+
+            .server-title {
+                font-size: 38px;
+            }
+
+
             footer {
                 grid-template-columns: 1fr;
 
@@ -921,12 +1170,15 @@
         }
 
     </style>
+
 </head>
 
 
 <body>
 
+
 <div class="site">
+
 
     <!-- =====================================================
          HEADER
@@ -939,10 +1191,12 @@
             class="brand"
             aria-label="Passive Experiment Unit home"
         >
+
             <img
-                src="icon-nobg.png"
+                src="icon.png"
                 alt="Passive Experiment Unit"
             >
+
         </a>
 
 
@@ -963,6 +1217,7 @@
 
     <main>
 
+
         <!-- =================================================
              HOME PAGE
         ================================================== -->
@@ -973,6 +1228,7 @@
             <!-- HERO -->
 
             <section class="hero">
+
 
                 <div class="hero-meta">
 
@@ -988,6 +1244,7 @@
 
 
                 <div class="hero-content">
+
 
                     <div class="experimental-mark">
 
@@ -1006,8 +1263,11 @@
 
 
                     <p class="hero-description">
-                        Independent software experiments exploring useful
-                        ideas, unusual interfaces, and things worth making.
+
+                        Independent software experiments exploring
+                        useful ideas, unusual interfaces, and things
+                        worth making.
+
                     </p>
 
                 </div>
@@ -1016,8 +1276,11 @@
                 <div class="hero-footer">
 
                     <span>OBSERVE</span>
+
                     <span>BUILD</span>
+
                     <span>TEST</span>
+
                     <span>REPEAT</span>
 
                 </div>
@@ -1025,20 +1288,25 @@
             </section>
 
 
-            <!-- EXPERIMENTS -->
+            <!-- =================================================
+                 EXPERIMENTS
+            ================================================== -->
 
             <section
                 id="experiments"
                 class="experiments"
             >
 
+
                 <div class="section-heading">
+
 
                     <div>
 
                         <span class="eyebrow">
                             CURRENT EXPERIMENTS
                         </span>
+
 
                         <h2>
                             Things we've made.
@@ -1068,20 +1336,25 @@
             </section>
 
 
-            <!-- ABOUT -->
+            <!-- =================================================
+                 ABOUT
+            ================================================== -->
 
             <section
                 id="about"
                 class="about"
             >
 
+
                 <div class="section-heading">
+
 
                     <div>
 
                         <span class="eyebrow">
                             THE UNIT
                         </span>
+
 
                         <h2>
                             Why Passive?
@@ -1099,26 +1372,34 @@
 
                 <div class="about-grid">
 
+
                     <p class="about-large">
+
                         We make software without pretending every
                         project needs to become a company.
+
                     </p>
 
 
                     <div class="about-text">
 
+
                         <p>
+
                             Passive Experiment Unit is an independent
                             software unit for experiments, utilities,
                             interfaces, and ideas that are interesting
                             enough to build.
+
                         </p>
 
 
                         <p>
+
                             Some experiments become products.
                             Some remain experiments.
                             Both are useful.
+
                         </p>
 
                     </div>
@@ -1136,17 +1417,23 @@
 
         <div id="app-page">
 
+
             <section class="app-page">
 
 
+                <!-- APP PAGE HEADER -->
+
                 <div class="app-page-top">
+
 
                     <button
                         id="back-button"
                         class="back-button"
                         type="button"
                     >
+
                         ← Back to experiments
+
                     </button>
 
 
@@ -1160,7 +1447,10 @@
                 </div>
 
 
+                <!-- APP HERO -->
+
                 <div class="app-hero">
+
 
                     <img
                         id="app-page-icon"
@@ -1171,6 +1461,7 @@
 
 
                     <div>
+
 
                         <h1
                             id="app-page-title"
@@ -1188,6 +1479,7 @@
 
                         <div class="app-page-actions">
 
+
                             <a
                                 id="app-play-link"
                                 class="primary-button"
@@ -1195,7 +1487,9 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
+
                                 Google Play →
+
                             </a>
 
                         </div>
@@ -1205,10 +1499,13 @@
                 </div>
 
 
+                <!-- APP CONTENT -->
+
                 <div class="app-page-content">
 
 
                     <div>
+
 
                         <p
                             id="app-page-description"
@@ -1228,11 +1525,10 @@
 
                     <div>
 
-                        <div
-                            class="eyebrow"
-                        >
+
+                        <span class="eyebrow">
                             FEATURES
-                        </div>
+                        </span>
 
 
                         <div
@@ -1245,9 +1541,90 @@
 
                 </div>
 
+
+                <!-- =================================================
+                     WINDOWS SERVER
+                ================================================== -->
+
+                <div
+                    id="server-section"
+                    class="server-section"
+                >
+
+
+                    <div class="server-grid">
+
+
+                        <div>
+
+
+                            <span class="eyebrow">
+                                WINDOWS COMPONENT
+                            </span>
+
+
+                            <h2 class="server-title">
+                                Windows server required.
+                            </h2>
+
+
+                            <p
+                                id="server-description"
+                                class="server-description"
+                            >
+                            </p>
+
+                        </div>
+
+
+                        <div class="server-download">
+
+
+                            <span class="eyebrow">
+                                WINDOWS INSTALLER
+                            </span>
+
+
+                            <span
+                                id="server-file"
+                                class="server-file"
+                            >
+                            </span>
+
+
+                            <div class="server-meta">
+
+                                <span>
+                                    Windows
+                                </span>
+
+                                <span>
+                                    Server
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                id="server-download-link"
+                                class="primary-button"
+                                href="#"
+                            >
+
+                                Download Windows Server →
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </section>
 
         </div>
+
 
     </main>
 
@@ -1258,13 +1635,16 @@
 
     <footer>
 
+
         <div>
             PASSIVE EXPERIMENT UNIT
         </div>
 
 
         <div>
+
             © <span id="year"></span>
+
         </div>
 
 
@@ -1272,7 +1652,9 @@
             INDEPENDENT SOFTWARE
         </div>
 
+
     </footer>
+
 
 </div>
 
@@ -1280,42 +1662,86 @@
 <script>
 
 /*
-==============================================================
+================================================================
  PASSIVE EXPERIMENT UNIT
  APP REGISTRY
-==============================================================
+================================================================
 
- Everything about an application lives here.
+ Everything related to an application is defined here.
 
- The important part is that "slug" is used internally
- to identify the application in the URL.
+ The website itself remains ONE index.html file.
 
- Example URL:
+ Clicking an app creates:
 
- index.html#app/macropad
+     index.html#app/macropad
 
-==============================================================
+ No second HTML page is required.
+
+================================================================
 */
 
 
 const APPS = [
 
     {
+
+        /*
+         * Internal URL identifier.
+         */
+
         slug: "macropad",
 
-        package: "com.itbrok.macropad",
 
-        name: "Macropad",
+        /*
+         * Google Play package name.
+         */
 
-        icon: "apps/macropad.png",
+        package:
+            "com.itbrok.macropad",
+
+
+        /*
+         * Display name.
+         */
+
+        name:
+            "Macropad",
+
+
+        /*
+         * Manually supplied app icon.
+         */
+
+        icon:
+            "apps/macropad.png",
+
+
+        /*
+         * App landing page.
+         */
 
         landing: {
+
+
+            /*
+             * Large introductory sentence.
+             */
 
             tagline:
                 "Turn your phone into a powerful remote control.",
 
+
+            /*
+             * Main product description.
+             */
+
             description:
-                "Macropad gives you customizable controls for your computer, combining macros, keyboards, touchpads, and profiles into one flexible remote-control experience.",
+                "Macropad connects your Android phone to your Windows PC, giving you customizable macros, keyboard controls, touchpad input, and profiles from one flexible remote-control application.",
+
+
+            /*
+             * Feature list.
+             */
 
             features: [
 
@@ -1325,11 +1751,27 @@ const APPS = [
 
                 "Touchpad control",
 
-                "Multiple profiles",
+                "Multiple profiles"
 
-                "Fast computer control"
+            ],
 
-            ]
+
+            /*
+             * Windows component.
+             */
+
+            server: {
+
+                required:
+                    true,
+
+                description:
+                    "Macropad requires the Macropad Server to be installed and running on your Windows PC. Install the server, connect your phone to the same network, and use Macropad to control your computer.",
+
+                installer:
+                    "Macropad-Server-Setup-1.0.3.exe"
+
+            }
 
         }
 
@@ -1339,9 +1781,9 @@ const APPS = [
 
 
 /*
-==============================================================
+================================================================
  GOOGLE PLAY
-==============================================================
+================================================================
 */
 
 const PLAY_STORE =
@@ -1349,119 +1791,206 @@ const PLAY_STORE =
 
 
 /*
-==============================================================
- DOM
-==============================================================
+================================================================
+ DOM ELEMENTS
+================================================================
 */
 
 const homePage =
-    document.getElementById("home-page");
+    document.getElementById(
+        "home-page"
+    );
+
 
 const appPage =
-    document.getElementById("app-page");
+    document.getElementById(
+        "app-page"
+    );
+
 
 const appsContainer =
-    document.getElementById("apps");
+    document.getElementById(
+        "apps"
+    );
+
 
 const appPageIcon =
-    document.getElementById("app-page-icon");
+    document.getElementById(
+        "app-page-icon"
+    );
+
 
 const appPageTitle =
-    document.getElementById("app-page-title");
+    document.getElementById(
+        "app-page-title"
+    );
+
 
 const appPageTagline =
-    document.getElementById("app-page-tagline");
+    document.getElementById(
+        "app-page-tagline"
+    );
+
 
 const appPageDescription =
-    document.getElementById("app-page-description");
+    document.getElementById(
+        "app-page-description"
+    );
+
 
 const appPagePackage =
-    document.getElementById("app-page-package");
+    document.getElementById(
+        "app-page-package"
+    );
+
 
 const appFeatures =
-    document.getElementById("app-features");
+    document.getElementById(
+        "app-features"
+    );
+
 
 const appPlayLink =
-    document.getElementById("app-play-link");
+    document.getElementById(
+        "app-play-link"
+    );
+
 
 const appPageIndex =
-    document.getElementById("app-page-index");
+    document.getElementById(
+        "app-page-index"
+    );
+
 
 const backButton =
-    document.getElementById("back-button");
+    document.getElementById(
+        "back-button"
+    );
+
+
+const serverSection =
+    document.getElementById(
+        "server-section"
+    );
+
+
+const serverDescription =
+    document.getElementById(
+        "server-description"
+    );
+
+
+const serverFile =
+    document.getElementById(
+        "server-file"
+    );
+
+
+const serverDownloadLink =
+    document.getElementById(
+        "server-download-link"
+    );
 
 
 /*
-==============================================================
+================================================================
  HTML ESCAPER
-==============================================================
+================================================================
 */
 
 function escapeHTML(value) {
 
     return String(value)
 
-        .replace(/&/g, "&amp;")
+        .replace(
+            /&/g,
+            "&amp;"
+        )
 
-        .replace(/</g, "&lt;")
+        .replace(
+            /</g,
+            "&lt;"
+        )
 
-        .replace(/>/g, "&gt;")
+        .replace(
+            />/g,
+            "&gt;"
+        )
 
-        .replace(/"/g, "&quot;")
+        .replace(
+            /"/g,
+            "&quot;"
+        )
 
-        .replace(/'/g, "&#039;");
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
 /*
-==============================================================
+================================================================
  GOOGLE PLAY URL
-==============================================================
+================================================================
 */
 
-function getPlayStoreURL(packageName) {
+function getPlayStoreURL(
+    packageName
+) {
 
     return (
         PLAY_STORE +
-        encodeURIComponent(packageName)
+        encodeURIComponent(
+            packageName
+        )
     );
 
 }
 
 
 /*
-==============================================================
- FIND APP BY SLUG
-==============================================================
+================================================================
+ FIND APP
+================================================================
 */
 
-function getAppBySlug(slug) {
+function getAppBySlug(
+    slug
+) {
 
     return APPS.find(
-        app => app.slug === slug
+        app =>
+            app.slug === slug
     );
 
 }
 
 
 /*
-==============================================================
+================================================================
  CREATE APP CARD
-==============================================================
+================================================================
 */
 
-function createAppCard(app, index) {
+function createAppCard(
+    app,
+    index
+) {
 
     const card =
-        document.createElement("article");
+        document.createElement(
+            "article"
+        );
 
 
     card.className =
         "app";
 
 
-    card.tabIndex = 0;
+    card.tabIndex =
+        0;
 
 
     card.setAttribute(
@@ -1481,21 +2010,22 @@ function createAppCard(app, index) {
                     src="${escapeHTML(app.icon)}"
                     alt="${escapeHTML(app.name)} icon"
                     loading="lazy"
-                    onerror="
-                        this.onerror = null;
-                        this.src = 'icon.png';
-                    "
                 >
 
                 <span class="app-number">
-                    EXP. ${String(index + 1).padStart(2, "0")}
+
+                    EXP.
+                    ${String(index + 1).padStart(2, "0")}
+
                 </span>
 
             </div>
 
 
             <h3 class="app-name">
+
                 ${escapeHTML(app.name)}
+
             </h3>
 
         </div>
@@ -1504,19 +2034,25 @@ function createAppCard(app, index) {
         <div class="app-bottom">
 
             <span class="package">
+
                 ${escapeHTML(app.package)}
+
             </span>
 
 
             <a
                 class="play-link"
                 href="${escapeHTML(
-                    getPlayStoreURL(app.package)
+                    getPlayStoreURL(
+                        app.package
+                    )
                 )}"
                 target="_blank"
                 rel="noopener noreferrer"
             >
+
                 Google Play →
+
             </a>
 
         </div>
@@ -1525,7 +2061,31 @@ function createAppCard(app, index) {
 
 
     /*
-     * Clicking the card opens the SPA landing page.
+     * Fallback icon.
+     */
+
+    const icon =
+        card.querySelector(
+            ".app-icon"
+        );
+
+
+    icon.addEventListener(
+        "error",
+        function() {
+
+            this.onerror =
+                null;
+
+            this.src =
+                "icon.png";
+
+        }
+    );
+
+
+    /*
+     * Open application landing page.
      */
 
     card.addEventListener(
@@ -1533,12 +2093,13 @@ function createAppCard(app, index) {
         function(event) {
 
             /*
-             * If Google Play was clicked,
-             * don't open our landing page.
+             * Don't intercept Google Play.
              */
 
             if (
-                event.target.closest(".play-link")
+                event.target.closest(
+                    ".play-link"
+                )
             ) {
 
                 return;
@@ -1546,14 +2107,16 @@ function createAppCard(app, index) {
             }
 
 
-            openApp(app.slug);
+            openApp(
+                app.slug
+            );
 
         }
     );
 
 
     /*
-     * Keyboard support.
+     * Keyboard accessibility.
      */
 
     card.addEventListener(
@@ -1567,7 +2130,9 @@ function createAppCard(app, index) {
 
                 event.preventDefault();
 
-                openApp(app.slug);
+                openApp(
+                    app.slug
+                );
 
             }
 
@@ -1581,14 +2146,15 @@ function createAppCard(app, index) {
 
 
 /*
-==============================================================
+================================================================
  LOAD APP CARDS
-==============================================================
+================================================================
 */
 
 function loadApps() {
 
-    appsContainer.innerHTML = "";
+    appsContainer.innerHTML =
+        "";
 
 
     if (
@@ -1599,7 +2165,9 @@ function loadApps() {
         appsContainer.innerHTML = `
 
             <div class="loading">
+
                 NO EXPERIMENTS YET.
+
             </div>
 
         `;
@@ -1610,7 +2178,10 @@ function loadApps() {
 
 
     APPS.forEach(
-        (app, index) => {
+        (
+            app,
+            index
+        ) => {
 
             if (
                 !app.slug ||
@@ -1630,10 +2201,12 @@ function loadApps() {
 
 
             appsContainer.appendChild(
+
                 createAppCard(
                     app,
                     index
                 )
+
             );
 
         }
@@ -1643,28 +2216,23 @@ function loadApps() {
 
 
 /*
-==============================================================
- OPEN APP LANDING PAGE
-==============================================================
+================================================================
+ POPULATE APP LANDING PAGE
+================================================================
 */
 
-function openApp(slug) {
+function populateAppPage(
+    app
+) {
 
-    const app =
-        getAppBySlug(slug);
-
-
-    if (!app) {
-
-        showHome();
-
-        return;
-
-    }
+    const index =
+        APPS.indexOf(
+            app
+        );
 
 
     /*
-     * Populate app page.
+     * Icon.
      */
 
     appPageIcon.src =
@@ -1677,12 +2245,18 @@ function openApp(slug) {
     appPageIcon.onerror =
         function() {
 
-            this.onerror = null;
+            this.onerror =
+                null;
 
-            this.src = "icon.png";
+            this.src =
+                "icon.png";
 
         };
 
+
+    /*
+     * Main information.
+     */
 
     appPageTitle.textContent =
         app.name;
@@ -1702,6 +2276,21 @@ function openApp(slug) {
         app.package;
 
 
+    appPageIndex.textContent =
+        `EXP. ${
+            String(
+                index + 1
+            ).padStart(
+                2,
+                "0"
+            )
+        }`;
+
+
+    /*
+     * Google Play.
+     */
+
     appPlayLink.href =
         getPlayStoreURL(
             app.package
@@ -1709,33 +2298,28 @@ function openApp(slug) {
 
 
     /*
-     * Determine experiment number.
+     * Features.
      */
 
-    const index =
-        APPS.indexOf(app);
-
-
-    appPageIndex.textContent =
-        `EXP. ${String(index + 1).padStart(2, "0")}`;
-
-
-    /*
-     * Render features.
-     */
-
-    appFeatures.innerHTML = "";
+    appFeatures.innerHTML =
+        "";
 
 
     const features =
-        app.landing?.features || [];
+        app.landing?.features ||
+        [];
 
 
     features.forEach(
-        (feature, index) => {
+        (
+            feature,
+            index
+        ) => {
 
             const element =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
 
             element.className =
@@ -1745,11 +2329,23 @@ function openApp(slug) {
             element.innerHTML = `
 
                 <span class="feature-number">
-                    ${String(index + 1).padStart(2, "0")}
+
+                    ${String(
+                        index + 1
+                    ).padStart(
+                        2,
+                        "0"
+                    )}
+
                 </span>
 
+
                 <span class="feature-name">
-                    ${escapeHTML(feature)}
+
+                    ${escapeHTML(
+                        feature
+                    )}
+
                 </span>
 
             `;
@@ -1764,9 +2360,101 @@ function openApp(slug) {
 
 
     /*
+     * Windows server.
+     */
+
+    const server =
+        app.landing?.server;
+
+
+    if (
+        server &&
+        server.required
+    ) {
+
+        serverSection.style.display =
+            "block";
+
+
+        serverDescription.textContent =
+            server.description ||
+            "";
+
+
+        serverFile.textContent =
+            server.installer ||
+            "";
+
+
+        serverDownloadLink.href =
+            server.installer ||
+            "#";
+
+
+        /*
+         * Browser will download the
+         * EXE instead of navigating.
+         */
+
+        serverDownloadLink.setAttribute(
+            "download",
+            ""
+        );
+
+    }
+
+    else {
+
+        serverSection.style.display =
+            "none";
+
+    }
+
+}
+
+
+/*
+================================================================
+ OPEN APP
+================================================================
+*/
+
+function openApp(
+    slug
+) {
+
+    const app =
+        getAppBySlug(
+            slug
+        );
+
+
+    if (!app) {
+
+        showHome();
+
+        return;
+
+    }
+
+
+    /*
+     * Populate content.
+     */
+
+    populateAppPage(
+        app
+    );
+
+
+    /*
      * Update URL.
+
+     * Still the SAME index.html.
+
+     * Example:
      *
-     * We stay on the SAME index.html.
+     * index.html#app/macropad
      */
 
     window.location.hash =
@@ -1774,18 +2462,19 @@ function openApp(slug) {
 
 
     /*
-     * Switch views.
+     * Change visible page.
      */
 
     homePage.style.display =
         "none";
+
 
     appPage.style.display =
         "block";
 
 
     /*
-     * Start from the top.
+     * Scroll to top.
      */
 
     window.scrollTo({
@@ -1795,7 +2484,7 @@ function openApp(slug) {
 
 
     /*
-     * Update browser title.
+     * Browser title.
      */
 
     document.title =
@@ -1805,15 +2494,16 @@ function openApp(slug) {
 
 
 /*
-==============================================================
+================================================================
  SHOW HOME
-==============================================================
+================================================================
 */
 
 function showHome() {
 
     homePage.style.display =
         "block";
+
 
     appPage.style.display =
         "none";
@@ -1824,12 +2514,17 @@ function showHome() {
 
 
     /*
-     * Remove app hash without creating
-     * an unnecessary history entry.
+     * Remove app hash.
+
+     * replaceState prevents an
+     * unnecessary history entry.
      */
 
     if (
-        window.location.hash.startsWith("#app/")
+        window.location.hash
+            .startsWith(
+                "#app/"
+            )
     ) {
 
         history.replaceState(
@@ -1842,10 +2537,6 @@ function showHome() {
     }
 
 
-    /*
-     * Scroll to top.
-     */
-
     window.scrollTo({
         top: 0,
         behavior: "instant"
@@ -1855,9 +2546,9 @@ function showHome() {
 
 
 /*
-==============================================================
+================================================================
  ROUTER
-==============================================================
+================================================================
 */
 
 function handleRoute() {
@@ -1867,26 +2558,49 @@ function handleRoute() {
 
 
     if (
-        hash.startsWith("#app/")
+        hash.startsWith(
+            "#app/"
+        )
     ) {
 
         const slug =
             decodeURIComponent(
-                hash.substring(5)
+                hash.substring(
+                    5
+                )
             );
 
 
         const app =
-            getAppBySlug(slug);
+            getAppBySlug(
+                slug
+            );
 
 
         if (app) {
 
-            /*
-             * Open without changing hash again.
-             */
+            populateAppPage(
+                app
+            );
 
-            populateAppPage(app);
+
+            homePage.style.display =
+                "none";
+
+
+            appPage.style.display =
+                "block";
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "instant"
+            });
+
+
+            document.title =
+                `${app.name} — Passive Experiment Unit`;
+
 
             return;
 
@@ -1901,148 +2615,14 @@ function handleRoute() {
 
 
 /*
-==============================================================
- POPULATE APP PAGE
-==============================================================
-*/
-
-function populateAppPage(app) {
-
-    const index =
-        APPS.indexOf(app);
-
-
-    appPageIcon.src =
-        app.icon;
-
-    appPageIcon.alt =
-        `${app.name} icon`;
-
-
-    appPageIcon.onerror =
-        function() {
-
-            this.onerror = null;
-
-            this.src = "icon.png";
-
-        };
-
-
-    appPageTitle.textContent =
-        app.name;
-
-
-    appPageTagline.textContent =
-        app.landing?.tagline ||
-        "";
-
-
-    appPageDescription.textContent =
-        app.landing?.description ||
-        "";
-
-
-    appPagePackage.textContent =
-        app.package;
-
-
-    appPlayLink.href =
-        getPlayStoreURL(
-            app.package
-        );
-
-
-    appPageIndex.textContent =
-        `EXP. ${String(index + 1).padStart(2, "0")}`;
-
-
-    appFeatures.innerHTML = "";
-
-
-    const features =
-        app.landing?.features || [];
-
-
-    features.forEach(
-        (feature, index) => {
-
-            const element =
-                document.createElement("div");
-
-
-            element.className =
-                "feature";
-
-
-            element.innerHTML = `
-
-                <span class="feature-number">
-                    ${String(index + 1).padStart(2, "0")}
-                </span>
-
-                <span class="feature-name">
-                    ${escapeHTML(feature)}
-                </span>
-
-            `;
-
-
-            appFeatures.appendChild(
-                element
-            );
-
-        }
-    );
-
-
-    homePage.style.display =
-        "none";
-
-    appPage.style.display =
-        "block";
-
-
-    document.title =
-        `${app.name} — Passive Experiment Unit`;
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "instant"
-    });
-
-}
-
-
-/*
-==============================================================
+================================================================
  BACK BUTTON
-==============================================================
+================================================================
 */
 
 backButton.addEventListener(
     "click",
     function() {
-
-        /*
-         * If the user arrived at the app through
-         * a hash, remove it and go home.
-         */
-
-        if (
-            window.location.hash.startsWith("#app/")
-        ) {
-
-            history.replaceState(
-                null,
-                "",
-                window.location.pathname +
-                window.location.search
-            );
-
-        }
-
 
         showHome();
 
@@ -2051,13 +2631,15 @@ backButton.addEventListener(
 
 
 /*
-==============================================================
- LOGO → HOME
-==============================================================
+================================================================
+ LOGO
+================================================================
 */
 
 document
-    .querySelector(".brand")
+    .querySelector(
+        ".brand"
+    )
     .addEventListener(
         "click",
         function(event) {
@@ -2071,13 +2653,15 @@ document
 
 
 /*
-==============================================================
+================================================================
  NAVIGATION
-==============================================================
+================================================================
 */
 
 document
-    .querySelectorAll("nav a")
+    .querySelectorAll(
+        "nav a"
+    )
     .forEach(
         link => {
 
@@ -2086,16 +2670,20 @@ document
                 function(event) {
 
                     const target =
-                        this.getAttribute("href");
+                        this.getAttribute(
+                            "href"
+                        );
 
 
                     /*
-                     * If we're currently viewing
-                     * an app, first return to home.
+                     * When viewing an app,
+                     * return to the home page
+                     * before scrolling.
                      */
 
                     if (
-                        appPage.style.display !== "none"
+                        appPage.style.display !==
+                        "none"
                     ) {
 
                         event.preventDefault();
@@ -2112,11 +2700,6 @@ document
                         showHome();
 
 
-                        /*
-                         * Give the DOM a moment to
-                         * restore the home page.
-                         */
-
                         setTimeout(
                             () => {
 
@@ -2129,7 +2712,8 @@ document
                                 if (element) {
 
                                     element.scrollIntoView({
-                                        behavior: "smooth"
+                                        behavior:
+                                            "smooth"
                                     });
 
                                 }
@@ -2148,9 +2732,9 @@ document
 
 
 /*
-==============================================================
+================================================================
  HASH CHANGES
-==============================================================
+================================================================
 */
 
 window.addEventListener(
@@ -2160,9 +2744,9 @@ window.addEventListener(
 
 
 /*
-==============================================================
- YEAR
-==============================================================
+================================================================
+ CURRENT YEAR
+================================================================
 */
 
 document.getElementById(
@@ -2172,9 +2756,9 @@ document.getElementById(
 
 
 /*
-==============================================================
+================================================================
  INITIALIZE
-==============================================================
+================================================================
 */
 
 loadApps();
@@ -2182,6 +2766,7 @@ loadApps();
 handleRoute();
 
 </script>
+
 
 </body>
 </html>
