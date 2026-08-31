@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Passive Experiment Unit</title>
-    <meta name="description" content="Passive Experiment Unit — independent software experiments.">
+
+    <meta
+        name="description"
+        content="Passive Experiment Unit — independent software experiments."
+    >
 
     <link rel="icon" type="image/png" href="icon.png">
 
     <style>
+
         :root {
             --yellow: #FFD900;
             --red: #E60000;
@@ -18,27 +23,42 @@
             --max-width: 1400px;
         }
 
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
             background: var(--yellow);
             color: var(--black);
-            font-family: Arial, Helvetica, sans-serif;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
             -webkit-font-smoothing: antialiased;
         }
+
 
         a {
             color: inherit;
             text-decoration: none;
         }
+
+
+        button {
+            font: inherit;
+        }
+
 
         .site {
             width: min(100%, var(--max-width));
@@ -46,313 +66,709 @@
             padding: 0 32px;
         }
 
-        /* =========================
+
+        /* =====================================================
            HEADER
-        ========================= */
+        ===================================================== */
 
         header {
             height: 92px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             border-bottom: var(--border);
         }
+
+
+        .brand {
+            cursor: pointer;
+        }
+
 
         .brand img {
             width: 52px;
             height: 52px;
+
             display: block;
+
             object-fit: contain;
         }
+
 
         nav {
             display: flex;
             gap: 36px;
         }
 
+
         nav a {
             font-size: 11px;
             font-weight: 800;
+
             text-transform: uppercase;
             letter-spacing: .12em;
+
+            cursor: pointer;
         }
+
 
         nav a:hover {
             color: var(--red);
         }
 
-        /* =========================
+
+        /* =====================================================
+           MAIN PAGE
+        ===================================================== */
+
+        #home-page {
+            display: block;
+        }
+
+
+        /* =====================================================
            HERO
-        ========================= */
+        ===================================================== */
 
         .hero {
             min-height: 760px;
+
             padding: 42px 0;
+
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
             border-bottom: var(--border);
         }
+
 
         .hero-meta {
             display: flex;
             justify-content: space-between;
+
             font-size: 10px;
             font-weight: 800;
+
             letter-spacing: .14em;
         }
+
 
         .hero-content {
             max-width: 1000px;
         }
 
+
         .experimental-mark {
             width: 100px;
             height: 14px;
+
             display: flex;
             gap: 7px;
+
             margin-bottom: 44px;
         }
+
 
         .experimental-mark span {
             height: 14px;
             width: 14px;
+
             background: var(--red);
         }
+
 
         .experimental-mark span:nth-child(2) {
             width: 58px;
         }
 
+
         .hero h1 {
             color: var(--red);
-            font-size: clamp(65px, 10vw, 150px);
+
+            font-size:
+                clamp(65px, 10vw, 150px);
+
             line-height: .83;
+
             letter-spacing: -.075em;
+
             font-weight: 900;
+
             text-transform: uppercase;
         }
 
+
         .hero-description {
             max-width: 560px;
+
             margin-top: 48px;
+
             font-size: 18px;
             line-height: 1.5;
+
             font-weight: 500;
         }
+
 
         .hero-footer {
             display: flex;
             justify-content: space-between;
-            border-top: 1px solid rgba(0,0,0,.35);
+
+            border-top:
+                1px solid rgba(0,0,0,.35);
+
             padding-top: 13px;
+
             font-size: 10px;
             font-weight: 800;
+
             letter-spacing: .15em;
         }
 
-        /* =========================
+
+        /* =====================================================
            SECTIONS
-        ========================= */
+        ===================================================== */
 
         section {
             border-bottom: var(--border);
         }
+
 
         .experiments,
         .about {
             padding: 120px 0;
         }
 
+
         .section-heading {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+
             margin-bottom: 64px;
         }
 
+
         .eyebrow {
             display: block;
+
             color: var(--red);
+
             font-size: 10px;
             font-weight: 800;
+
             letter-spacing: .16em;
+
             margin-bottom: 18px;
         }
 
+
         .section-heading h2 {
-            font-size: clamp(44px, 6vw, 78px);
+            font-size:
+                clamp(44px, 6vw, 78px);
+
             line-height: .95;
+
             letter-spacing: -.06em;
         }
 
+
         .section-number {
             color: var(--red);
+
             font-size: 11px;
             font-weight: 800;
         }
 
-        /* =========================
+
+        /* =====================================================
            APPS
-        ========================= */
+        ===================================================== */
 
         .apps {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
             border-top: var(--border);
             border-left: var(--border);
         }
 
+
         .app {
             min-height: 320px;
+
             padding: 32px;
+
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
             border-right: var(--border);
             border-bottom: var(--border);
-            transition: .2s ease;
+
+            cursor: pointer;
+
+            transition:
+                background .2s ease,
+                color .2s ease;
+
+            outline: none;
         }
+
 
         .app:hover {
             background: var(--black);
             color: var(--yellow);
         }
 
+
+        .app:focus-visible {
+            outline: 3px solid var(--red);
+            outline-offset: -3px;
+        }
+
+
         .app-top {
             display: flex;
+
             justify-content: space-between;
             align-items: flex-start;
         }
 
+
         .app-icon {
             width: 88px;
             height: 88px;
+
             border-radius: 20px;
+
             object-fit: cover;
+
             background: var(--black);
         }
+
 
         .app-number {
             font-size: 10px;
             font-weight: 800;
+
             opacity: .5;
         }
+
 
         .app-name {
             margin-top: 50px;
+
             font-size: 36px;
             line-height: 1;
+
             letter-spacing: -.045em;
+
             font-weight: 800;
         }
 
-        .app-description {
-            max-width: 600px;
-            margin-top: 14px;
-            font-size: 13px;
-            line-height: 1.5;
-            opacity: .65;
-        }
 
         .app-bottom {
             margin-top: 42px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             gap: 20px;
         }
 
+
         .package {
             max-width: 65%;
+
             overflow: hidden;
+
             text-overflow: ellipsis;
+
             white-space: nowrap;
+
             font-family: monospace;
+
             font-size: 10px;
+
             opacity: .5;
         }
 
+
         .play-link {
             font-size: 10px;
+
             font-weight: 800;
+
             letter-spacing: .1em;
+
             text-transform: uppercase;
         }
+
 
         .play-link:hover {
             color: var(--red);
         }
 
-        /* =========================
+
+        /* =====================================================
            LOADING
-        ========================= */
+        ===================================================== */
 
         .loading {
             grid-column: 1 / -1;
+
             min-height: 220px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             border-right: var(--border);
             border-bottom: var(--border);
+
             font-size: 10px;
+
             font-weight: 800;
+
             letter-spacing: .15em;
         }
 
-        /* =========================
+
+        /* =====================================================
            ABOUT
-        ========================= */
+        ===================================================== */
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
+
+            grid-template-columns:
+                1.4fr 1fr;
+
             gap: 100px;
+
             max-width: 1100px;
         }
 
+
         .about-large {
-            font-size: clamp(34px, 4vw, 60px);
+            font-size:
+                clamp(34px, 4vw, 60px);
+
             line-height: .98;
+
             letter-spacing: -.055em;
+
             font-weight: 700;
         }
+
 
         .about-text {
             font-size: 16px;
             line-height: 1.7;
         }
 
+
         .about-text p + p {
             margin-top: 25px;
         }
 
-        /* =========================
+
+        /* =====================================================
+           APP LANDING PAGE
+        ===================================================== */
+
+        #app-page {
+            display: none;
+        }
+
+
+        .app-page {
+            min-height: calc(100vh - 92px);
+
+            padding: 70px 0 120px;
+        }
+
+
+        .app-page-top {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 90px;
+        }
+
+
+        .back-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 0;
+
+            border: 0;
+
+            background: transparent;
+
+            color: var(--black);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: .12em;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+        }
+
+
+        .back-button:hover {
+            color: var(--red);
+        }
+
+
+        .app-page-index {
+            color: var(--red);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: .14em;
+        }
+
+
+        .app-hero {
+            display: grid;
+
+            grid-template-columns:
+                180px 1fr;
+
+            gap: 60px;
+
+            align-items: start;
+
+            padding-bottom: 100px;
+
+            border-bottom: var(--border);
+        }
+
+
+        .app-page-icon {
+            width: 180px;
+            height: 180px;
+
+            object-fit: cover;
+
+            border-radius: 38px;
+
+            display: block;
+        }
+
+
+        .app-page-title {
+            color: var(--red);
+
+            font-size:
+                clamp(60px, 9vw, 130px);
+
+            line-height: .85;
+
+            letter-spacing: -.075em;
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+        }
+
+
+        .app-page-tagline {
+            max-width: 700px;
+
+            margin-top: 38px;
+
+            font-size:
+                clamp(20px, 2.2vw, 30px);
+
+            line-height: 1.25;
+
+            font-weight: 500;
+
+            letter-spacing: -.025em;
+        }
+
+
+        .app-page-actions {
+            display: flex;
+
+            align-items: center;
+
+            gap: 24px;
+
+            margin-top: 42px;
+        }
+
+
+        .primary-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-height: 48px;
+
+            padding: 0 24px;
+
+            background: var(--black);
+
+            color: var(--yellow);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: .12em;
+
+            text-transform: uppercase;
+
+            border: 2px solid var(--black);
+
+            transition: .2s ease;
+        }
+
+
+        .primary-button:hover {
+            background: var(--red);
+
+            border-color: var(--red);
+
+            color: white;
+        }
+
+
+        .app-page-content {
+            display: grid;
+
+            grid-template-columns:
+                1.2fr .8fr;
+
+            gap: 100px;
+
+            padding-top: 100px;
+        }
+
+
+        .app-page-description {
+            max-width: 760px;
+
+            font-size: 21px;
+
+            line-height: 1.55;
+
+            font-weight: 500;
+        }
+
+
+        .feature-list {
+            border-top: var(--border);
+        }
+
+
+        .feature {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            padding: 20px 0;
+
+            border-bottom: 1px solid rgba(0,0,0,.35);
+        }
+
+
+        .feature-number {
+            color: var(--red);
+
+            font-family: monospace;
+
+            font-size: 10px;
+
+            font-weight: 800;
+        }
+
+
+        .feature-name {
+            flex: 1;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: .04em;
+        }
+
+
+        .app-package-large {
+            margin-top: 70px;
+
+            font-family: monospace;
+
+            font-size: 10px;
+
+            opacity: .45;
+        }
+
+
+        /* =====================================================
            FOOTER
-        ========================= */
+        ===================================================== */
 
         footer {
             min-height: 110px;
+
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+
+            grid-template-columns:
+                1fr 1fr 1fr;
+
             align-items: center;
+
             font-size: 9px;
+
             font-weight: 800;
+
             letter-spacing: .13em;
         }
+
 
         footer div:nth-child(2) {
             text-align: center;
         }
 
+
         footer div:last-child {
             text-align: right;
         }
 
-        /* =========================
+
+        /* =====================================================
            MOBILE
-        ========================= */
+        ===================================================== */
 
         @media (max-width: 700px) {
 
@@ -360,89 +776,187 @@
                 padding: 0 18px;
             }
 
+
             header {
                 height: 76px;
             }
+
 
             .brand img {
                 width: 44px;
                 height: 44px;
             }
 
+
             nav {
                 gap: 18px;
             }
+
 
             nav a {
                 font-size: 9px;
             }
 
+
             .hero {
                 min-height: 650px;
             }
+
 
             .hero-meta {
                 font-size: 8px;
             }
 
+
             .hero h1 {
                 font-size: 18vw;
             }
+
 
             .hero-description {
                 font-size: 16px;
             }
 
+
             .hero-footer {
                 font-size: 8px;
             }
+
 
             .experiments,
             .about {
                 padding: 80px 0;
             }
 
+
             .apps {
                 grid-template-columns: 1fr;
             }
+
 
             .app {
                 min-height: 280px;
             }
 
+
             .about-grid {
                 grid-template-columns: 1fr;
+
                 gap: 45px;
             }
 
+
+            /* APP PAGE */
+
+            .app-page {
+                padding: 40px 0 80px;
+            }
+
+
+            .app-page-top {
+                margin-bottom: 55px;
+            }
+
+
+            .app-hero {
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+
+                padding-bottom: 70px;
+            }
+
+
+            .app-page-icon {
+                width: 110px;
+                height: 110px;
+
+                border-radius: 24px;
+            }
+
+
+            .app-page-title {
+                font-size: 19vw;
+            }
+
+
+            .app-page-tagline {
+                font-size: 19px;
+            }
+
+
+            .app-page-actions {
+                margin-top: 30px;
+            }
+
+
+            .app-page-content {
+                grid-template-columns: 1fr;
+
+                gap: 60px;
+
+                padding-top: 70px;
+            }
+
+
+            .app-page-description {
+                font-size: 18px;
+            }
+
+
             footer {
                 grid-template-columns: 1fr;
+
                 gap: 14px;
+
                 padding: 30px 0;
             }
+
 
             footer div,
             footer div:nth-child(2),
             footer div:last-child {
                 text-align: left;
             }
+
         }
+
     </style>
 </head>
+
 
 <body>
 
 <div class="site">
 
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
     <header>
 
-        <a href="#" class="brand">
-            <img src="icon.png" alt="Passive Experiment Unit">
+        <a
+            href="#"
+            class="brand"
+            aria-label="Passive Experiment Unit home"
+        >
+            <img
+                src="icon-nobg.png"
+                alt="Passive Experiment Unit"
+            >
         </a>
 
+
         <nav>
-            <a href="#experiments">Experiments</a>
-            <a href="#about">About</a>
+
+            <a href="#experiments">
+                Experiments
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
         </nav>
 
     </header>
@@ -450,117 +964,298 @@
 
     <main>
 
-        <!-- HERO -->
+        <!-- =================================================
+             HOME PAGE
+        ================================================== -->
 
-        <section class="hero">
+        <div id="home-page">
 
-            <div class="hero-meta">
-                <span>PEU / 001</span>
-                <span>INDEPENDENT SOFTWARE UNIT</span>
-            </div>
 
-            <div class="hero-content">
+            <!-- HERO -->
 
-                <div class="experimental-mark">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <section class="hero">
+
+                <div class="hero-meta">
+
+                    <span>
+                        PEU / 001
+                    </span>
+
+                    <span>
+                        INDEPENDENT SOFTWARE UNIT
+                    </span>
+
                 </div>
 
-                <h1>
-                    Passive<br>
-                    Experiment<br>
-                    Unit
-                </h1>
 
-                <p class="hero-description">
-                    Independent software experiments exploring useful
-                    ideas, unusual interfaces, and things worth making.
-                </p>
+                <div class="hero-content">
 
-            </div>
+                    <div class="experimental-mark">
 
-            <div class="hero-footer">
-                <span>OBSERVE</span>
-                <span>BUILD</span>
-                <span>TEST</span>
-                <span>REPEAT</span>
-            </div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
 
-        </section>
+                    </div>
 
 
-        <!-- EXPERIMENTS -->
-
-        <section id="experiments" class="experiments">
-
-            <div class="section-heading">
-
-                <div>
-                    <span class="eyebrow">CURRENT EXPERIMENTS</span>
-                    <h2>Things we've made.</h2>
-                </div>
-
-                <span class="section-number">01</span>
-
-            </div>
-
-            <div id="apps" class="apps">
-
-                <div class="loading">
-                    LOADING EXPERIMENTS...
-                </div>
-
-            </div>
-
-        </section>
+                    <h1>
+                        Passive<br>
+                        Experiment<br>
+                        Unit
+                    </h1>
 
 
-        <!-- ABOUT -->
-
-        <section id="about" class="about">
-
-            <div class="section-heading">
-
-                <div>
-                    <span class="eyebrow">THE UNIT</span>
-                    <h2>Why Passive?</h2>
-                </div>
-
-                <span class="section-number">02</span>
-
-            </div>
-
-            <div class="about-grid">
-
-                <p class="about-large">
-                    We make software without pretending every
-                    project needs to become a company.
-                </p>
-
-                <div class="about-text">
-
-                    <p>
-                        Passive Experiment Unit is an independent
-                        software unit for experiments, utilities,
-                        interfaces, and ideas that are interesting
-                        enough to build.
-                    </p>
-
-                    <p>
-                        Some experiments become products.
-                        Some remain experiments.
-                        Both are useful.
+                    <p class="hero-description">
+                        Independent software experiments exploring useful
+                        ideas, unusual interfaces, and things worth making.
                     </p>
 
                 </div>
 
-            </div>
 
-        </section>
+                <div class="hero-footer">
+
+                    <span>OBSERVE</span>
+                    <span>BUILD</span>
+                    <span>TEST</span>
+                    <span>REPEAT</span>
+
+                </div>
+
+            </section>
+
+
+            <!-- EXPERIMENTS -->
+
+            <section
+                id="experiments"
+                class="experiments"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            CURRENT EXPERIMENTS
+                        </span>
+
+                        <h2>
+                            Things we've made.
+                        </h2>
+
+                    </div>
+
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="apps"
+                    class="apps"
+                >
+
+                    <div class="loading">
+                        LOADING EXPERIMENTS...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ABOUT -->
+
+            <section
+                id="about"
+                class="about"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            THE UNIT
+                        </span>
+
+                        <h2>
+                            Why Passive?
+                        </h2>
+
+                    </div>
+
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <p class="about-large">
+                        We make software without pretending every
+                        project needs to become a company.
+                    </p>
+
+
+                    <div class="about-text">
+
+                        <p>
+                            Passive Experiment Unit is an independent
+                            software unit for experiments, utilities,
+                            interfaces, and ideas that are interesting
+                            enough to build.
+                        </p>
+
+
+                        <p>
+                            Some experiments become products.
+                            Some remain experiments.
+                            Both are useful.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =================================================
+             APP LANDING PAGE
+        ================================================== -->
+
+        <div id="app-page">
+
+            <section class="app-page">
+
+
+                <div class="app-page-top">
+
+                    <button
+                        id="back-button"
+                        class="back-button"
+                        type="button"
+                    >
+                        ← Back to experiments
+                    </button>
+
+
+                    <span
+                        id="app-page-index"
+                        class="app-page-index"
+                    >
+                        EXP. 01
+                    </span>
+
+                </div>
+
+
+                <div class="app-hero">
+
+                    <img
+                        id="app-page-icon"
+                        class="app-page-icon"
+                        src=""
+                        alt=""
+                    >
+
+
+                    <div>
+
+                        <h1
+                            id="app-page-title"
+                            class="app-page-title"
+                        >
+                        </h1>
+
+
+                        <p
+                            id="app-page-tagline"
+                            class="app-page-tagline"
+                        >
+                        </p>
+
+
+                        <div class="app-page-actions">
+
+                            <a
+                                id="app-play-link"
+                                class="primary-button"
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Google Play →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="app-page-content">
+
+
+                    <div>
+
+                        <p
+                            id="app-page-description"
+                            class="app-page-description"
+                        >
+                        </p>
+
+
+                        <div
+                            id="app-page-package"
+                            class="app-package-large"
+                        >
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div
+                            class="eyebrow"
+                        >
+                            FEATURES
+                        </div>
+
+
+                        <div
+                            id="app-features"
+                            class="feature-list"
+                        >
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
 
     </main>
 
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
     <footer>
 
@@ -568,9 +1263,11 @@
             PASSIVE EXPERIMENT UNIT
         </div>
 
+
         <div>
             © <span id="year"></span>
         </div>
+
 
         <div>
             INDEPENDENT SOFTWARE
@@ -580,52 +1277,72 @@
 
 </div>
 
+
 <script>
+
 /*
-============================================================
+==============================================================
  PASSIVE EXPERIMENT UNIT
  APP REGISTRY
-============================================================
+==============================================================
 
- Add your apps here.
+ Everything about an application lives here.
 
- Required:
- - package
- - name
- - icon
+ The important part is that "slug" is used internally
+ to identify the application in the URL.
 
- Example:
+ Example URL:
 
- const APPS = [
-     {
-         package: "com.itbrok.macropad",
-         name: "Macropad",
-         icon: "apps/macropad.png"
-     },
+ index.html#app/macropad
 
-     {
-         package: "com.example.secondapp",
-         name: "Second App",
-         icon: "apps/second-app.png"
-     }
- ];
-
-============================================================
+==============================================================
 */
 
+
 const APPS = [
+
     {
+        slug: "macropad",
+
         package: "com.itbrok.macropad",
+
         name: "Macropad",
-        icon: "apps/macropad.png"
+
+        icon: "apps/macropad.png",
+
+        landing: {
+
+            tagline:
+                "Turn your phone into a powerful remote control.",
+
+            description:
+                "Macropad gives you customizable controls for your computer, combining macros, keyboards, touchpads, and profiles into one flexible remote-control experience.",
+
+            features: [
+
+                "Custom macro controls",
+
+                "Keyboard control",
+
+                "Touchpad control",
+
+                "Multiple profiles",
+
+                "Fast computer control"
+
+            ]
+
+        }
+
     }
+
 ];
 
 
 /*
-============================================================
+==============================================================
  GOOGLE PLAY
-============================================================
+==============================================================
 */
 
 const PLAY_STORE =
@@ -633,27 +1350,75 @@ const PLAY_STORE =
 
 
 /*
-============================================================
+==============================================================
+ DOM
+==============================================================
+*/
+
+const homePage =
+    document.getElementById("home-page");
+
+const appPage =
+    document.getElementById("app-page");
+
+const appsContainer =
+    document.getElementById("apps");
+
+const appPageIcon =
+    document.getElementById("app-page-icon");
+
+const appPageTitle =
+    document.getElementById("app-page-title");
+
+const appPageTagline =
+    document.getElementById("app-page-tagline");
+
+const appPageDescription =
+    document.getElementById("app-page-description");
+
+const appPagePackage =
+    document.getElementById("app-page-package");
+
+const appFeatures =
+    document.getElementById("app-features");
+
+const appPlayLink =
+    document.getElementById("app-play-link");
+
+const appPageIndex =
+    document.getElementById("app-page-index");
+
+const backButton =
+    document.getElementById("back-button");
+
+
+/*
+==============================================================
  HTML ESCAPER
-============================================================
+==============================================================
 */
 
 function escapeHTML(value) {
 
     return String(value)
+
         .replace(/&/g, "&amp;")
+
         .replace(/</g, "&lt;")
+
         .replace(/>/g, "&gt;")
+
         .replace(/"/g, "&quot;")
+
         .replace(/'/g, "&#039;");
 
 }
 
 
 /*
-============================================================
- CREATE GOOGLE PLAY URL
-============================================================
+==============================================================
+ GOOGLE PLAY URL
+==============================================================
 */
 
 function getPlayStoreURL(packageName) {
@@ -667,9 +1432,24 @@ function getPlayStoreURL(packageName) {
 
 
 /*
-============================================================
+==============================================================
+ FIND APP BY SLUG
+==============================================================
+*/
+
+function getAppBySlug(slug) {
+
+    return APPS.find(
+        app => app.slug === slug
+    );
+
+}
+
+
+/*
+==============================================================
  CREATE APP CARD
-============================================================
+==============================================================
 */
 
 function createAppCard(app, index) {
@@ -677,11 +1457,18 @@ function createAppCard(app, index) {
     const card =
         document.createElement("article");
 
-    card.className = "app";
+
+    card.className =
+        "app";
 
 
-    const playURL =
-        getPlayStoreURL(app.package);
+    card.tabIndex = 0;
+
+
+    card.setAttribute(
+        "role",
+        "link"
+    );
 
 
     card.innerHTML = `
@@ -724,7 +1511,9 @@ function createAppCard(app, index) {
 
             <a
                 class="play-link"
-                href="${escapeHTML(playURL)}"
+                href="${escapeHTML(
+                    getPlayStoreURL(app.package)
+                )}"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -736,51 +1525,84 @@ function createAppCard(app, index) {
     `;
 
 
+    /*
+     * Clicking the card opens the SPA landing page.
+     */
+
+    card.addEventListener(
+        "click",
+        function(event) {
+
+            /*
+             * If Google Play was clicked,
+             * don't open our landing page.
+             */
+
+            if (
+                event.target.closest(".play-link")
+            ) {
+
+                return;
+
+            }
+
+
+            openApp(app.slug);
+
+        }
+    );
+
+
+    /*
+     * Keyboard support.
+     */
+
+    card.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+
+                event.preventDefault();
+
+                openApp(app.slug);
+
+            }
+
+        }
+    );
+
+
     return card;
 
 }
 
 
 /*
-============================================================
- LOAD APPS
-============================================================
+==============================================================
+ LOAD APP CARDS
+==============================================================
 */
 
 function loadApps() {
 
-    const container =
-        document.getElementById("apps");
+    appsContainer.innerHTML = "";
 
 
-    if (!container) {
+    if (
+        !Array.isArray(APPS) ||
+        APPS.length === 0
+    ) {
 
-        console.error(
-            "Passive Experiment Unit: #apps element not found."
-        );
+        appsContainer.innerHTML = `
 
-        return;
-
-    }
-
-
-    /*
-     * Clear loading state.
-     */
-
-    container.innerHTML = "";
-
-
-    /*
-     * No apps.
-     */
-
-    if (!Array.isArray(APPS) || APPS.length === 0) {
-
-        container.innerHTML = `
             <div class="loading">
                 NO EXPERIMENTS YET.
             </div>
+
         `;
 
         return;
@@ -788,18 +1610,11 @@ function loadApps() {
     }
 
 
-    /*
-     * Render every app.
-     */
-
     APPS.forEach(
         (app, index) => {
 
-            /*
-             * Basic validation.
-             */
-
             if (
+                !app.slug ||
                 !app.package ||
                 !app.name ||
                 !app.icon
@@ -815,7 +1630,7 @@ function loadApps() {
             }
 
 
-            container.appendChild(
+            appsContainer.appendChild(
                 createAppCard(
                     app,
                     index
@@ -829,32 +1644,543 @@ function loadApps() {
 
 
 /*
-============================================================
- CURRENT YEAR
-============================================================
+==============================================================
+ OPEN APP LANDING PAGE
+==============================================================
 */
 
-const year =
-    document.getElementById("year");
+function openApp(slug) {
 
-if (year) {
+    const app =
+        getAppBySlug(slug);
 
-    year.textContent =
-        new Date().getFullYear();
+
+    if (!app) {
+
+        showHome();
+
+        return;
+
+    }
+
+
+    /*
+     * Populate app page.
+     */
+
+    appPageIcon.src =
+        app.icon;
+
+    appPageIcon.alt =
+        `${app.name} icon`;
+
+
+    appPageIcon.onerror =
+        function() {
+
+            this.onerror = null;
+
+            this.src = "icon.png";
+
+        };
+
+
+    appPageTitle.textContent =
+        app.name;
+
+
+    appPageTagline.textContent =
+        app.landing?.tagline ||
+        "";
+
+
+    appPageDescription.textContent =
+        app.landing?.description ||
+        "";
+
+
+    appPagePackage.textContent =
+        app.package;
+
+
+    appPlayLink.href =
+        getPlayStoreURL(
+            app.package
+        );
+
+
+    /*
+     * Determine experiment number.
+     */
+
+    const index =
+        APPS.indexOf(app);
+
+
+    appPageIndex.textContent =
+        `EXP. ${String(index + 1).padStart(2, "0")}`;
+
+
+    /*
+     * Render features.
+     */
+
+    appFeatures.innerHTML = "";
+
+
+    const features =
+        app.landing?.features || [];
+
+
+    features.forEach(
+        (feature, index) => {
+
+            const element =
+                document.createElement("div");
+
+
+            element.className =
+                "feature";
+
+
+            element.innerHTML = `
+
+                <span class="feature-number">
+                    ${String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span class="feature-name">
+                    ${escapeHTML(feature)}
+                </span>
+
+            `;
+
+
+            appFeatures.appendChild(
+                element
+            );
+
+        }
+    );
+
+
+    /*
+     * Update URL.
+     *
+     * We stay on the SAME index.html.
+     */
+
+    window.location.hash =
+        `app/${app.slug}`;
+
+
+    /*
+     * Switch views.
+     */
+
+    homePage.style.display =
+        "none";
+
+    appPage.style.display =
+        "block";
+
+
+    /*
+     * Start from the top.
+     */
+
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
+
+
+    /*
+     * Update browser title.
+     */
+
+    document.title =
+        `${app.name} — Passive Experiment Unit`;
 
 }
 
 
 /*
-============================================================
- INITIALIZE
-============================================================
+==============================================================
+ SHOW HOME
+==============================================================
 */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    loadApps
+function showHome() {
+
+    homePage.style.display =
+        "block";
+
+    appPage.style.display =
+        "none";
+
+
+    document.title =
+        "Passive Experiment Unit";
+
+
+    /*
+     * Remove app hash without creating
+     * an unnecessary history entry.
+     */
+
+    if (
+        window.location.hash.startsWith("#app/")
+    ) {
+
+        history.replaceState(
+            null,
+            "",
+            window.location.pathname +
+            window.location.search
+        );
+
+    }
+
+
+    /*
+     * Scroll to top.
+     */
+
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
+
+}
+
+
+/*
+==============================================================
+ ROUTER
+==============================================================
+*/
+
+function handleRoute() {
+
+    const hash =
+        window.location.hash;
+
+
+    if (
+        hash.startsWith("#app/")
+    ) {
+
+        const slug =
+            decodeURIComponent(
+                hash.substring(5)
+            );
+
+
+        const app =
+            getAppBySlug(slug);
+
+
+        if (app) {
+
+            /*
+             * Open without changing hash again.
+             */
+
+            populateAppPage(app);
+
+            return;
+
+        }
+
+    }
+
+
+    showHome();
+
+}
+
+
+/*
+==============================================================
+ POPULATE APP PAGE
+==============================================================
+*/
+
+function populateAppPage(app) {
+
+    const index =
+        APPS.indexOf(app);
+
+
+    appPageIcon.src =
+        app.icon;
+
+    appPageIcon.alt =
+        `${app.name} icon`;
+
+
+    appPageIcon.onerror =
+        function() {
+
+            this.onerror = null;
+
+            this.src = "icon.png";
+
+        };
+
+
+    appPageTitle.textContent =
+        app.name;
+
+
+    appPageTagline.textContent =
+        app.landing?.tagline ||
+        "";
+
+
+    appPageDescription.textContent =
+        app.landing?.description ||
+        "";
+
+
+    appPagePackage.textContent =
+        app.package;
+
+
+    appPlayLink.href =
+        getPlayStoreURL(
+            app.package
+        );
+
+
+    appPageIndex.textContent =
+        `EXP. ${String(index + 1).padStart(2, "0")}`;
+
+
+    appFeatures.innerHTML = "";
+
+
+    const features =
+        app.landing?.features || [];
+
+
+    features.forEach(
+        (feature, index) => {
+
+            const element =
+                document.createElement("div");
+
+
+            element.className =
+                "feature";
+
+
+            element.innerHTML = `
+
+                <span class="feature-number">
+                    ${String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span class="feature-name">
+                    ${escapeHTML(feature)}
+                </span>
+
+            `;
+
+
+            appFeatures.appendChild(
+                element
+            );
+
+        }
+    );
+
+
+    homePage.style.display =
+        "none";
+
+    appPage.style.display =
+        "block";
+
+
+    document.title =
+        `${app.name} — Passive Experiment Unit`;
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
+
+}
+
+
+/*
+==============================================================
+ BACK BUTTON
+==============================================================
+*/
+
+backButton.addEventListener(
+    "click",
+    function() {
+
+        /*
+         * If the user arrived at the app through
+         * a hash, remove it and go home.
+         */
+
+        if (
+            window.location.hash.startsWith("#app/")
+        ) {
+
+            history.replaceState(
+                null,
+                "",
+                window.location.pathname +
+                window.location.search
+            );
+
+        }
+
+
+        showHome();
+
+    }
 );
+
+
+/*
+==============================================================
+ LOGO → HOME
+==============================================================
+*/
+
+document
+    .querySelector(".brand")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            event.preventDefault();
+
+            showHome();
+
+        }
+    );
+
+
+/*
+==============================================================
+ NAVIGATION
+==============================================================
+*/
+
+document
+    .querySelectorAll("nav a")
+    .forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                function(event) {
+
+                    const target =
+                        this.getAttribute("href");
+
+
+                    /*
+                     * If we're currently viewing
+                     * an app, first return to home.
+                     */
+
+                    if (
+                        appPage.style.display !== "none"
+                    ) {
+
+                        event.preventDefault();
+
+
+                        history.replaceState(
+                            null,
+                            "",
+                            window.location.pathname +
+                            window.location.search
+                        );
+
+
+                        showHome();
+
+
+                        /*
+                         * Give the DOM a moment to
+                         * restore the home page.
+                         */
+
+                        setTimeout(
+                            () => {
+
+                                const element =
+                                    document.querySelector(
+                                        target
+                                    );
+
+
+                                if (element) {
+
+                                    element.scrollIntoView({
+                                        behavior: "smooth"
+                                    });
+
+                                }
+
+                            },
+                            10
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+/*
+==============================================================
+ HASH CHANGES
+==============================================================
+*/
+
+window.addEventListener(
+    "hashchange",
+    handleRoute
+);
+
+
+/*
+==============================================================
+ YEAR
+==============================================================
+*/
+
+document.getElementById(
+    "year"
+).textContent =
+    new Date().getFullYear();
+
+
+/*
+==============================================================
+ INITIALIZE
+==============================================================
+*/
+
+loadApps();
+
+handleRoute();
 
 </script>
 
